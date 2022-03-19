@@ -1,8 +1,7 @@
 const express = require("express");
-const mongoose = require("mongoose"); 
+const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
-
 
 const cors = require("cors");
 const dotenv = require("dotenv");
@@ -21,26 +20,28 @@ app.use(cookieParser());
 
 const URL = process.env.MONGODB_URL;
 
-mongoose.connect(URL,{
-    useCreateIndex: true,
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    useFindAndModify: false
-})
+mongoose.connect(URL, {
+  useCreateIndex: true,
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  useFindAndModify: false,
+});
 //open created database connection
 const connection = mongoose.connection;
-connection.once("open", () =>{
-    console.log("mongodb Connection success");
-})
-//access to supplier.js 
+connection.once("open", () => {
+  console.log("mongodb Connection success");
+});
+//access to supplier.js
 // const supplierRouter = require("./routes/supplier.js");
 // app.use("/supplier",supplierRouter);
 
 const userRouter = require("./routes/user.js");
-app.use("/user",userRouter);
+app.use("/user", userRouter);
 
+const roomRouter = require("./routes/Rooms.js");
+app.use("/rooms", roomRouter);
 
 //running port 8970
-app.listen(PORT, () =>{
-    console.log(`Server is up and running on port no: ${PORT}`)
-})
+app.listen(PORT, () => {
+  console.log(`Server is up and running on port no: ${PORT}`);
+});
