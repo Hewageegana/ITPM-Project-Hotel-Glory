@@ -1,0 +1,16 @@
+.img-fluid {
+  width: 28rem;
+  height: 250px;
+}
+.img-slider {
+  width: 1050px;
+  height: 450px;
+  margin-left: 250px;
+}
+.cards-position {
+  margin-top: 50px;
+}
+
+.slider-position {
+  margin-top: 20px;
+}
