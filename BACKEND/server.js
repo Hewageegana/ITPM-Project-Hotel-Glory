@@ -38,8 +38,14 @@ connection.once("open", () => {
 const userRouter = require("./routes/user.js");
 app.use("/user", userRouter);
 
+const staffRouter = require("./routes/staff");
+app.use("/staff", staffRouter);
+
 const roomRouter = require("./routes/Rooms.js");
 app.use("/rooms", roomRouter);
+
+const bookingRouter = require("./routes/booking.js");
+app.use("/booking", bookingRouter);
 
 //running port 8970
 app.listen(PORT, () => {
