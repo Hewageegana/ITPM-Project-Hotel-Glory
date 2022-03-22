@@ -95,7 +95,9 @@ export default function Rooms() {
                           <p> {rooms.description}</p>
                         </div>
                         <div className="card-text">
-                          <p>{rooms.price} </p>
+                          <p>
+                            <b>Price :- LKR.{rooms.Price}/= (Per Night) </b>
+                          </p>
                         </div>
 
                         <div />
