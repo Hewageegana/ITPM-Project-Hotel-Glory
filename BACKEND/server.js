@@ -44,6 +44,9 @@ app.use("/staff", staffRouter);
 const roomRouter = require("./routes/Rooms.js");
 app.use("/rooms", roomRouter);
 
+const bookingRouter = require("./routes/booking.js");
+app.use("/booking", bookingRouter);
+
 //running port 8970
 app.listen(PORT, () => {
   console.log(`Server is up and running on port no: ${PORT}`);
