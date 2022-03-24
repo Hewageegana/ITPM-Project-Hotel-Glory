@@ -76,7 +76,7 @@ function AddEmployees() {
                 button: "Ok",
             });history.push(path2);
         }).catch((e)=>{
-            swal("Please fill Form correctly");
+            swal("Please fill Form correctly" +e);
         })
     };
 
@@ -150,7 +150,7 @@ function AddEmployees() {
               onChange={(e) => {
                 setEmail(e.target.value);
               } } required/>
-              <label for="floatingInput">Duration</label>
+              <label for="floatingInput">Email</label>
               {errors.email && (<p style={{ color:"red"}}>*email format is Incorrect</p> )}
       
   </div>
