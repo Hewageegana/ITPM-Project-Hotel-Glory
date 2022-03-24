@@ -59,6 +59,7 @@ export default function Rooms() {
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Previous</span>
           </button>
+
           <button
             class="carousel-control-next"
             type="button"
@@ -81,7 +82,7 @@ export default function Rooms() {
                 <div className="card" style={{ width: 25 + "rem" }}>
                   <div className="card-body">
                     <img
-                      src={twinroom}
+                      src={rooms.Image}
                       className="img-fluid"
                       alt="Responsive image"
                     />
