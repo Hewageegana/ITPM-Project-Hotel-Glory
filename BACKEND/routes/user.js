@@ -13,8 +13,9 @@ const signToken = userID => {
   },"damru",{expiresIn: "1h"});
 }
 
+//user register(add)
 userRouter.route('/register').post((req,res)=>{
-  const {username,password} = req.body;
+  const {name,email,contactNo,gender,nic,dob,image,username,password} = req.body;
   role = "user";
 
 
@@ -24,7 +25,7 @@ userRouter.route('/register').post((req,res)=>{
     if(user)
     res.status(400).json({message : {msgBody : "Username is already taken", msgError: true}});
     else{
-      const newUser = new User({username,password,role});
+      const newUser = new User({name,email,contactNo,gender,nic,dob,image,username,password,role});
       newUser.save(err=>{
           if(err)
           res.status(500).json({message : {msgBody : "Error has occured ", msgError: true}});
@@ -37,10 +38,13 @@ userRouter.route('/register').post((req,res)=>{
   });
 });
 
+
+//logout
 userRouter.get('/logout',passport.authenticate('jwt',{session : false}),(req,res)=>{
   res.clearCookie('access_token');
   res.json({user:{username : "", role :""},success : true});    
 });
+
 
 //use passport locatstrategy for login
 userRouter.post('/login',passport.authenticate('local',{session : false}),(req,res)=>{
@@ -62,5 +66,65 @@ userRouter.get('/userauthenticated',passport.authenticate('jwt',{session:false})
   const {username,role} = req.user;
   res.status(200).json({isAuthenticated : true, user : {username,role}});  
 });
+
+
+//update
+userRouter.put('/userupdate/:id',passport.authenticate('jwt',{session : false}),(req,res)=>{
+  let userID = req.params.id;
+  //const supplier = await Supplier.findById(req.user._id);
+  //destructor
+  const{name,email,contactNo,gender,nic,dob,image} = req.body;
+
+  const updateUser = {
+    name,
+    email,
+    contactNo,
+    gender,
+    nic,
+    dob,
+    image
+  }
+     const update = User.findByIdAndUpdate(userID,updateUser).then(() =>{
+      res.status(200).send({status: "User updated"})
+  }).catch((err) =>{
+      console.log(err);
+      res.status(500).send({status: "Error with updating data",error: err.message})
+  });
+  
+});
+
+
+// delete 
+userRouter.delete('/delete/:id',passport.authenticate('jwt',{session : false}),(req,res)=>{
+  let id = req.params.id;
+
+      User.findByIdAndRemove(id).then(()=>{
+        res.status(200).send({ status: "User deleted" });
+      })
+      .catch((err)=>{
+        res.status(500).send({ status: "Error with delete", error: err.message });
+      });
+});
+
+
+//user Profile (view)
+userRouter.get('/userprofile',passport.authenticate('jwt',{session : false}),(req,res)=>{
+
+  // let userID = req.params.id;
+  // const {name,nicno,address,contactno,companyname,raw,description,email,username,password,role} = req.body;
+
+       User.findById({_id : req.user._id}).then(user=>{
+       
+       if(!user){
+           error.nonprofile = 'There is no profile for this user';
+           return res.status(404).json(errors);
+
+       }if(user){
+       res.json(user);
+       }
+   })
+   .catch(err => res.status(404).json(err));  
+});
+
 
 module.exports = userRouter;
