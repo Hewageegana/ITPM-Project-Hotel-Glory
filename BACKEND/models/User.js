@@ -50,7 +50,7 @@ const userSchema = new Schema({
     role:{
         type:String,
         enum : ['user' , 'admin', 'staff'],
-        require:true
+        // require:true
     }
 });
 
