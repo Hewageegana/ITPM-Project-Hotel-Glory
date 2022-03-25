@@ -78,7 +78,7 @@ export default function Rooms() {
         {roomList.map((rooms) => (
           <div className="cards-position">
             <div className="col">
-              <div className="container">
+              <div className="container1">
                 <div className="card" style={{ width: 25 + "rem" }}>
                   <div className="card-body">
                     <img
