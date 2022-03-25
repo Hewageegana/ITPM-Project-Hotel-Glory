@@ -4,14 +4,20 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import Testing from "./component/Testing";
 import Rooms from "./component/RoomManagement/Rooms";
 import AddRooms from "./component/RoomManagement/AddRooms";
+import AddEmployees from "./component/StaffManagement/AddEmployees";
+import Login from "./component/Common/Login";
 
 function App() {
   return (
     <Router>
       <div>
         <Route path="/testing" exact component={Testing} />
+
         <Route path="/rooms" exact component={Rooms} />
         <Route path="/addrooms" exact component={AddRooms} />
+
+        <Route path="/user/addstaff" exact component={AddEmployees} />
+        <Route path="/public/login" exact component={Login} />
       </div>
     </Router>
   );

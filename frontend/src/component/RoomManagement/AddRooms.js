@@ -3,6 +3,8 @@ import axios from "axios";
 import { useHistory, useParams } from "react-router-dom";
 import swal from "sweetalert";
 import { useForm } from "react-hook-form";
+import "../StaffManagement/addemployee.css";
+import "./rooms.css";
 
 export default function AddRooms() {
   const {
@@ -95,7 +97,7 @@ export default function AddRooms() {
                 fontWeight: "600",
               }}
             >
-              ADD NEW MEMBER
+              <div className="headind-add-newroom">ADD NEW ROOM</div>
             </h1>
           </center>
           <div className="register">
@@ -139,83 +141,87 @@ export default function AddRooms() {
                   </div>
                 </center>
                 <br />
-                <div className="row g-2">
-                  <div className="col-md-6 form-floating">
-                    <input
-                      type="text"
+                <div className="add-room-form">
+                  <div className="row g-2">
+                    <div className="col-md-6 form-floating">
+                      <input
+                        type="text"
+                        className="form-control logininput"
+                        id="username"
+                        placeholder="Employee Name"
+                        onChange={(e) => {
+                          setRoomID(e.target.value);
+                        }}
+                        required
+                      />
+
+                      <label for="floatingInput">Room Number</label>
+                    </div>
+                  </div>
+                  <br />
+                  <div className="row g-2">
+                    <div className="col-md-6 form-floating">
+                      <input
+                        type="text"
+                        className="form-control logininput"
+                        id="nic"
+                        placeholder="nic"
+                        onChange={(e) => {
+                          setRoomType(e.target.value);
+                        }}
+                        required
+                      />
+                      <label for="floatingInput">Room Type</label>
+                    </div>
+                  </div>
+                  <br />
+                  <div className="row g-2">
+                    <div className="col-md-6 form-floating">
+                      <input
+                        type="text"
+                        className="form-control logininput"
+                        id="nic"
+                        placeholder="nic"
+                        onChange={(e) => {
+                          setPrice(e.target.value);
+                        }}
+                        required
+                      />
+                      <label for="floatingInput">Price Per Night</label>
+                    </div>
+                  </div>
+                  <br />
+                  <br />
+                  <div className="col-md-6">
+                    <textarea
+                      rows="3"
                       className="form-control logininput"
-                      id="username"
-                      placeholder="Employee Name"
+                      id="address"
+                      placeholder="Description"
                       onChange={(e) => {
-                        setRoomID(e.target.value);
+                        setdescription(e.target.value);
                       }}
                       required
                     />
-                    <label for="floatingInput">Room Number</label>
                   </div>
+                  <br />
+                  <button
+                    type="submit"
+                    className="btnregister"
+                    onClick={handleSubmit(sendData)}
+                    id="regsubmit"
+                  >
+                    Submit
+                  </button>
+                  &nbsp;&nbsp;
+                  <button type="reset" className="btnreset" id="regreset">
+                    Reset
+                  </button>
                 </div>
-                <br />
-                <div className="row g-2">
-                  <div className="col-md-6 form-floating">
-                    <input
-                      type="text"
-                      className="form-control logininput"
-                      id="nic"
-                      placeholder="nic"
-                      onChange={(e) => {
-                        setRoomType(e.target.value);
-                      }}
-                      required
-                    />
-                    <label for="floatingInput">Room Type</label>
-                  </div>
-                </div>
-                <br />
-                <div className="row g-2">
-                  <div className="col-md-6 form-floating">
-                    <input
-                      type="text"
-                      className="form-control logininput"
-                      id="nic"
-                      placeholder="nic"
-                      onChange={(e) => {
-                        setPrice(e.target.value);
-                      }}
-                      required
-                    />
-                    <label for="floatingInput">Price Per Night</label>
-                  </div>
-                </div>
-                <br />
-                <br />
-                <div className="col-md-6">
-                  <textarea
-                    rows="3"
-                    className="form-control logininput"
-                    id="address"
-                    placeholder="Description"
-                    onChange={(e) => {
-                      setdescription(e.target.value);
-                    }}
-                    required
-                  />
-                </div>
-                <br />
-                <button
-                  type="submit"
-                  className="btnregister"
-                  onClick={handleSubmit(sendData)}
-                  id="regsubmit"
-                >
-                  Submit
-                </button>
-                &nbsp;&nbsp;
-                <button type="reset" className="btnreset" id="regreset">
-                  Reset
-                </button>
               </form>
             </div>
           </div>
+
           <br />
         </div>
         <br />
