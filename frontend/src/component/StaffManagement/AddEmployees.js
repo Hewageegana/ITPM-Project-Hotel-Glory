@@ -1,6 +1,6 @@
 import React,{useEffect,useState} from 'react'
 import axios from "axios";
-import { useHistory , useParams } from "react-router-dom";
+import { Link, useHistory , useParams } from "react-router-dom";
 import swal from "sweetalert";
 import { useForm } from "react-hook-form";
 import './addemployee.css'
@@ -25,6 +25,10 @@ function AddEmployees() {
     const [jobtitle,setJobtitle] = useState("");
     const [martialStatus,setMartialStatus] = useState("");
     const [age,setAge] = useState("");
+    const [code,setCODE] = useState("+94");
+    const [contactCode,setContactCode] = useState("");
+
+
 
     const postDetails = async e=>{
         const files = e.target.files
@@ -53,8 +57,9 @@ function AddEmployees() {
 
     //       }
     //   })
-
     function sendData(e){
+
+      setcontactNo(code+contactCode)
 
         const newEmployee ={
             name,
@@ -83,7 +88,7 @@ function AddEmployees() {
   return (
     <>
     <br/>
-    <div className="container">
+    <div className="container customcon">
       
     <br/>
     <center><h1 style={{letterSpacing:"5px", fontSize:"30px" , fontWeight:"600"}}>ADD NEW MEMBER</h1></center>
@@ -96,71 +101,94 @@ function AddEmployees() {
           <label for="profile" style={{marginBottom:"20px"}}>
             <div className="card poster">
             
-              {profileImg === ""?<center><h4 style={{marginTop:"50px"}}>Preview</h4></center>:<center><img src={profileImg} className="posterimg" style={{width: "150px"}}/></center>}  
+              {profileImg === ""?<center><h4 style={{marginTop:"50px"}}>Preview</h4></center>:<center><img src={profileImg} className="posterimg"/></center>}  
                      
            </div> 
            </label> 
            <br/>
-                    <input type="file" className="form-control logininput" id="poster" placeholder="Profile Image"
+                    <input type="file" {...register("profileImg",{ required:true})} className="form-control logininput" id="poster" placeholder="Profile Image"
                       onChange={postDetails} required/>
+                      {errors?.profileImg?.type === "required"  && (<p style={{ color:"red"}}>*Required</p>)}
  
           </div></center>
           <br/>
-      <div className="row g-2">
+      <div className="row g-3">
       <div className="col-md-6 form-floating">
-                    <input type="text" className="form-control logininput" id="username" placeholder="Employee Name"
+                    <input type="text" className="form-control logininput" {...register("name",{ required:true})} id="username" placeholder="Employee Name"
                       onChange={(e) => {
                         setName(e.target.value);
-                      } } required/>
+                      } } />
                       <label for="floatingInput">Employee Name</label>
+                      {errors?.name?.type === "required"  && (<p style={{ color:"red"}}>*Required</p>)}
+
                   </div>
 
-          <div className="col-md-6 form-floating">
-          <input type="text" className="form-control logininput" id="contact" placeholder="Contact Number"
-              onChange={(e) => {setcontactNo(e.target.value);
+          <div className="col-md-1 form-floating">
+          <input type="text" className="form-control logininput" {...register("code",{ required:true})} id="contact" placeholder="+94" defaultValue="+94"
+              onChange={(e) => {setCODE(e.target.value);
+              }} required/>
+              <label for="floatingInput">  Code</label>
+              {errors?.code?.type === "required"  && (<p style={{ color:"red"}}>*Required</p>)}
+
+                  </div>
+
+          <div className="col-md-4 form-floating">
+          <input type="text" className="form-control logininput" id="contact" {...register("contact",{ pattern:/^\d{9}$/, required:true})} placeholder="Contact Number"
+              onChange={(e) => {setContactCode(e.target.value);
               }} required/>
               <label for="floatingInput">Contact Number</label>
+              {errors?.contact?.type === "pattern"  && (<p style={{ color:"red"}}>*Invalid Contact Number</p>)}
+              {errors?.contact?.type === "required"  && (<p style={{ color:"red"}}>*Required</p>)}
+
                   </div>
         </div>
         <br/>
 
         <div className="row g-2">
           <div className="col-md-6 form-floating">
-          <input type="text" className="form-control logininput" id="nic" placeholder="nic"
+          <input type="text" className="form-control logininput" {...register("nic",{ required:true})} id="nic" placeholder="nic"
                       onChange={(e) => {
                         setNic(e.target.value);
                       } } required/>
                       <label for="floatingInput">Nic Number</label>
+                      {errors?.nic?.type === "required"  && (<p style={{ color:"red"}}>*Required</p>)}
+
               
           </div>
 
           <div className="col-md-6 form-floating">
-                    <input type="text" className="form-control logininput" id="jobtitle" placeholder="Job Title"
+                    <input type="text" className="form-control logininput" {...register("jobtitle",{ required:true})} id="jobtitle" placeholder="Job Title"
                       onChange={(e) => {
                         setJobtitle(e.target.value);
                       } } required/>
                       <label for="floatingInput">Job Title</label>
+                      {errors?.jobtitle?.type === "required"  && (<p style={{ color:"red"}}>*Required</p>)}
+
                   </div>
         </div>
         <br/>
 
 <div className="row g-2">
   <div className="col-md-6 form-floating">
-  <input type="text" className="form-control logininput" {...register("email",{ pattern:/^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/})} id="email" placeholder="Email"
+  <input type="text" className="form-control logininput" {...register("email",{ pattern:/^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/, required:true})} id="email" placeholder="Email"
               onChange={(e) => {
                 setEmail(e.target.value);
               } } required/>
               <label for="floatingInput">Email</label>
-              {errors.email && (<p style={{ color:"red"}}>*email format is Incorrect</p> )}
+              {errors?.email?.type === "pattern" && (<p style={{ color:"red"}}>*email format is Incorrect</p> )}
+              {errors?.email?.type === "required"  && (<p style={{ color:"red"}}>*Required</p>)}
+
       
   </div>
 
   <div className="col-md-6 form-floating">
-              <input type="text" className="form-control logininput" id="age" placeholder="Age"
+              <input type="text" className="form-control logininput" {...register("age",{ required:true})} id="age" placeholder="Age"
                       onChange={(e) => {
                         setAge(e.target.value);
                       } } required/>
                       <label for="floatingInput">Age </label>
+                      {errors?.age?.type === "required"  && (<p style={{ color:"red"}}>*Required</p>)}
+
               
           </div>
 </div>
@@ -168,34 +196,40 @@ function AddEmployees() {
         <br/>
         <div className="row g-2">
         <div className="col-md-6">
-        <select type="text" className="form-control logininput" id="martialstatus" placeholder="Martial Status"
+        <select type="text" className="form-control logininput" id="martialstatus" {...register("martialstatus",{ required:true})} placeholder="Martial Status"
               onChange={(e) => {
                 setMartialStatus(e.target.value);
               } } required>      
               <option defaultValue>Select Martial Status...</option>
               <option>Single</option>
               <option>Married</option></select>
+              {errors?.martialstatus?.type === "required"  && (<p style={{ color:"red"}}>*Required</p>)}
+
                                  
              
           </div>
 
           <div className="col-md-6">
-          <select type="text" className="form-control logininput" id="gender" placeholder="gender"
+          <select type="text" className="form-control logininput" id="gender" {...register("gender",{ required:true})} placeholder="gender"
               onChange={(e) => {
                 setGender(e.target.value);
               } } required>      
               <option defaultValue>Select Gender...</option>
               <option>Male</option>
               <option>Female</option></select>
+              {errors?.gender?.type === "required"  && (<p style={{ color:"red"}}>*Required</p>)}
+
                   </div>
 
           </div>
           <br/>
           <div className="col-md-6">
                       &nbsp;&nbsp;<label for="floatingInput">Address</label> 
-                      <textarea rows="3" className="form-control logininput" id="address" placeholder="Address"
+                      <textarea rows="3" className="form-control logininput" {...register("address",{ required:true})} id="address" placeholder="Address"
               onChange={(e) => {setAddress(e.target.value);
               }} required/>
+             {errors?.address?.type === "required"  && (<p style={{ color:"red"}}>*Required</p>)}
+
                                  
              
           </div>
@@ -203,9 +237,9 @@ function AddEmployees() {
    
 
       
-      <button type="submit" className="btnregister" onClick={handleSubmit(sendData)} id="regsubmit">Submit</button>&nbsp;&nbsp;
-      <button type="reset" className="btnreset" id="regreset">Reset</button>
-
+      <button type="submit" className="btnregister" onClick={handleSubmit(sendData)} id="regsubmit">Submit</button>&nbsp;&nbsp;&nbsp;&nbsp;
+      <button type="reset" className="btnreset" id="regreset">Reset</button>&nbsp;&nbsp;&nbsp;&nbsp;
+      <Link to="/user/viewallstaff"><button type="button" className="btnreset" id="regreset">Cancel</button></Link>
       </form>     
        </div>
       </div>

@@ -38,6 +38,10 @@ const staffSchema = new Schema({
     type: String,
     required: true
   },
+  email:{
+    type: String,
+    require: true
+  },
 },{timestamps:true})
 
 const Staff = mongoose.model("Staff",staffSchema);
