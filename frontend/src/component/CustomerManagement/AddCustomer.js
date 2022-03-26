@@ -30,7 +30,7 @@ export default function AddCustomer() {
         // data.append("file",image)
         data.append("upload_preset","movie-app")
         data.append("cloud_name","padfoot")
-        data.append("folder","ITPM/room")
+        data.append("folder","ITPM/customer")
         const res = await
         fetch("https://api.cloudinary.com/v1_1/padfoot/image/upload",{
           method:"post",
@@ -79,10 +79,10 @@ export default function AddCustomer() {
     return (
         <>
         <br/>
-        <div className="container">
+        <div className="container customcon">
           
         <br/>
-        <center><h1 style={{letterSpacing:"5px", fontSize:"30px" , fontWeight:"600"}}>Customer Registration</h1></center>
+        <center><h1 style={{letterSpacing:"5px", fontSize:"30px" , fontWeight:"600"}}>CUSTOMER REGISTRATION</h1></center>
     <div className="register">
     <div className="registerin" style={{margin:"40px"}}>
      
@@ -152,10 +152,7 @@ export default function AddCustomer() {
                   {errors.email && (<p style={{ color:"red"}}>*email format is Incorrect</p> )}
       </div>
     
-            <br/>
-            <div className="row g-2">
-            
-              <div className="col-md-6">
+              <div className="col-md-6 ">
               <select type="text" className="form-control logininput" id="gender" placeholder="gender"
                   onChange={(e) => {
                     setgendero(e.target.value);
@@ -164,9 +161,9 @@ export default function AddCustomer() {
                   <option>Male</option>
                   <option>Female</option></select>
                       </div>
-                      </div>
+                      <br/>
 
-
+            <div className="row g-2">
              <div className="col-md-6 form-floating">
                 <input type="text" className="form-control logininput" id="username" placeholder="Customer username"
                           onChange={(e) => {
@@ -182,16 +179,14 @@ export default function AddCustomer() {
                             setpassword(e.target.value);
                           } } required/>
                           <label for="floatingInput">Password</label>
-                      </div>          
+                      </div>  
+                      </div>        
     
               </div>
               <br/>
             
-              <br/>
-       
-    
           
-          <button type="submit" className="btnregister" onClick={handleSubmit(sendData)} id="regsubmit">Submit</button>&nbsp;&nbsp;
+          <button type="submit" className="btnregister" onClick={handleSubmit(sendData)} id="regsubmit">Register</button>&nbsp;&nbsp;
           <button type="reset" className="btnreset" id="regreset">Reset</button>
     
           </form>     
