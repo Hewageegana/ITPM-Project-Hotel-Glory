@@ -13,21 +13,13 @@ export default function AddRooms() {
     formState: { errors },
   } = useForm();
   let history = useHistory();
-  // let path = '/public/login';
   let path2 = "/testing";
-  //   let path3 = "/addrooms";
 
   const [RoomId, setRoomID] = useState("");
   const [RoomType, setRoomType] = useState("");
   const [Price, setPrice] = useState("");
   const [description, setdescription] = useState("");
   const [Image, setImage] = useState("");
-
-  //   const [gender, setGender] = useState("");
-  //   // const [image, setImage] = useState("");
-  //   const [jobtitle, setJobtitle] = useState("");
-  //   const [martialStatus, setMartialStatus] = useState("");
-  //   const [age, setAge] = useState("");
 
   const postDetails = async (e) => {
     const files = e.target.files;
@@ -52,12 +44,6 @@ export default function AddRooms() {
         console.log(err);
       });
   };
-
-  //   useEffect(()=>{
-  //       const fetchUser = async ()=>{
-
-  //       }
-  //   })
 
   function sendData(e) {
     const newRoom = {
@@ -109,7 +95,7 @@ export default function AddRooms() {
                       for="floatingInput"
                       style={{ marginBottom: "10px", fontSize: "18px" }}
                     >
-                      Room Image
+                      Image of Room
                     </label>
                     <br />
                     <label for="profile" style={{ marginBottom: "20px" }}>
