@@ -1,0 +1,201 @@
+/* .filmname{
+  margin-left: 100px;
+} */
+.filmpage-imagecol{
+    float: left;
+    width:40%;
+  }
+  .filmpage-namecol{
+    float: left;
+    width:50%;
+  }
+  .filmpage-iconcol{
+    float: left;
+    width: 10%;
+  }
+  .emptycard{
+    margin: 20px;
+  }
+  .filmicon{
+    position: absolute;
+    right: 0px;
+  }
+  
+  .filmpage{
+    margin-top: 40px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    background-color: white;
+  }
+  .search{
+    width: 40%;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: white;
+    background-image: url('https://i.ibb.co/WfRvhs6/search-solid.png');
+    background-size: 25px 25px;
+    background-position: 10px 10px; 
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 40px;
+    margin-left: 80px;
+    margin-top: 30px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+  }
+  
+  .sfocus:focus{
+    width: 50%;
+  }
+
+  .hrView{
+    border-top: 3px solid black;
+    margin-left: 30px;
+    margin-right: 30px;
+  }
+  
+  /* .filmcard{
+    border: black;
+  } */
+  
+
+  /* .column{
+    float: left;
+    width: 25%;
+    padding: 0 10px;
+  } */
+  
+  .button-28 {
+    appearance: none;
+    background-color: transparent;
+    border: 2px solid #1A1A1A;
+    border-radius: 15px;
+    box-sizing: border-box;
+    color: #3B3B3B;
+    cursor: pointer;
+    display: inline-block;
+    font-family: Roobert,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+    font-size: 16px;
+    font-weight: 600;
+    line-height: normal;
+    margin: 0;
+    min-height: 60px;
+    min-width: 0;
+    outline: none;
+    padding: 16px 24px;
+    text-align: center;
+    text-decoration: none;
+    transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    width: 100%;
+    will-change: transform;
+  }
+  
+  .button-28:disabled {
+    pointer-events: none;
+  }
+  
+  .button-28:hover {
+    color: #fff;
+    background-color: #1A1A1A;
+    box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+    transform: translateY(-2px);
+  }
+  
+  .button-28:active {
+    box-shadow: none;
+    transform: translateY(0);
+  }
+  
+
+  
+  .filmimg2{
+    width: 200px;
+    margin: 20px;
+  }
+
+  .filmimg{
+    width: 170px;
+    height: 170px;
+    border: 0px solid #000;
+    border-radius: 100%;
+    object-fit: cover;
+ }
+
+  .filmimage{
+    width: 170px;
+    height: 170px;
+    margin: 20px;
+    margin-left: 50px;
+    border-radius: 100%;
+    box-shadow: #888888;
+  }
+  .filmcard1{
+    margin: 20px;
+    margin-right: 150px;
+    margin-left: 150px;
+
+  }
+
+  .allempreg{
+    margin-left: 5px;
+    border-radius: 35px;
+    color: #2191ff;
+}
+  
+  @media only screen and (max-width: 800px) {
+    .search{
+      margin-left: 9px;
+      margin-top: 0px;
+      min-height: 40px;
+    }
+    .filmpage{
+      width: 430px;
+      margin-top: 40px;
+      box-sizing: border-box;
+      border-radius: 5px;
+      background-color: white;
+    }
+    .filmimg{
+      width: 100px;
+      height: 100px;
+      border: 0px solid #000;
+      border-radius: 100%;
+      object-fit: cover;
+
+    }
+    .filmpage-nameh5{
+      font-size: 18px;
+    }
+    .filmicon{
+      float: left;
+      width: 15%;
+    }
+    .filmimg2{
+        max-width:100%;
+        max-height:100%;
+    }
+    .filmimage{
+      width: 100px;
+      height: 100px;
+      margin: 20px;
+      border-radius: 100%;
+      box-shadow: #888888;
+      }
+    .allempreg{
+        margin-top: 10px;
+        margin-left: 5px;
+        border-radius: 35px;
+        color: #2191ff;
+    }
+    .filmcard1{
+      margin: 20px;
+      margin-right: 0px;
+      margin-left: 0px;
+  
+    }
+  }
+  
