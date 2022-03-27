@@ -1,4 +1,4 @@
-.container {
+.customcon {
   box-shadow: 0 8px 16px 0 rgba(10, 10, 10, 0.2);
   background-color: #eeeeee;
 }
@@ -20,7 +20,15 @@
 
 .poster {
   width: 200px;
-  height: 250px;
+  height: 200px;
+  border-radius: 100%;
+}
+
+.posterimg {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 100%;
 }
 
 .register {

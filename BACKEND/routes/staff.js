@@ -43,7 +43,7 @@ staffRouter.post('/addstaff',passport.authenticate('jwt',{session : false}),(req
   //Get All Staff Members
   staffRouter.get('/allstaff',passport.authenticate('jwt',{session:false}),(req,res)=>{
         if(req.user.role === 'staff' || req.user.role === 'admin'){
-        Staff.find()
+        Staff.find().sort({ name: 1 }).collation({ locale: "en", caseLevel: true })
         .then((staff)=>{
             res.json(staff)
         }).catch((err)=>{
