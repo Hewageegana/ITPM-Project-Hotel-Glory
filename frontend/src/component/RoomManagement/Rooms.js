@@ -72,49 +72,80 @@ export default function Rooms() {
         </div>
       </div>
 
+      {/* Search Bar */}
+      <div className="room-search">
+        <div class="container-fluid">
+          <form class="d-flex">
+            <input
+              class="form-control me-2"
+              type="search"
+              placeholder="Search"
+              aria-label="Search"
+              onChange={(e) => {
+                setsearchTerm(e.target.value);
+              }}
+            />
+            <button class="btn btn-success" type="submit">
+              Search
+            </button>
+          </form>
+        </div>
+      </div>
+
       {/* Card view for rooms */}
-      <div className="container">
+      <div className="container roomcard">
         <div className="row row-cols-1 row-cols-md-3 g-4">
-          {roomList.map((rooms) => (
-            <div className="cards-position">
-              <div className="col">
-                <div className="container1">
-                  <div className="card" style={{ width: 25 + "rem" }}>
-                    <div className="card-body">
-                      <img
-                        src={rooms.Image}
-                        className="img-fluid"
-                        alt="Responsive image"
-                      />
+          {roomList
+            .filter((val) => {
+              if (searchTerm === "") {
+                return val;
+              } else if (
+                val.RoomType.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                val.Price.toLowerCase().includes(searchTerm.toLowerCase())
+              ) {
+                return val;
+              }
+            })
+            .map((rooms) => (
+              <div className="cards-position">
+                <div className="col">
+                  <div className="container1">
+                    <div className="card" style={{ width: 25 + "rem" }}>
+                      <div className="card-body">
+                        <img
+                          src={rooms.Image}
+                          className="img-fluid"
+                          alt="Responsive image"
+                        />
 
-                      <div className="">
-                        <div key={rooms._Id}>
-                          <div className="card-title">
-                            <h5>{rooms.RoomType}</h5>
-                          </div>
-                          <div className="card-text">
-                            <p> {rooms.description}</p>
-                          </div>
-                          <div className="card-text">
-                            <p>
-                              <b>Price :- LKR.{rooms.Price}/= (Per Night) </b>
-                            </p>
-                          </div>
+                        <div className="">
+                          <div key={rooms._Id}>
+                            <div className="card-title">
+                              <h5>{rooms.RoomType}</h5>
+                            </div>
+                            <div className="card-text">
+                              <p> {rooms.description}</p>
+                            </div>
+                            <div className="card-text">
+                              <p>
+                                <b>Price :- LKR.{rooms.Price}/= (Per Night) </b>
+                              </p>
+                            </div>
 
-                          <div />
+                            <div />
+                          </div>
                         </div>
-                      </div>
-                      <div className="btn-book">
-                        <a href="#" className="btn btn-primary">
-                          Book Now
-                        </a>
+                        <div className="btn-book">
+                          <a href="#" className="btn btn-primary">
+                            Book Now
+                          </a>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
         </div>
       </div>
     </>

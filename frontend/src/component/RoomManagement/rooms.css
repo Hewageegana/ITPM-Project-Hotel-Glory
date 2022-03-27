@@ -32,3 +32,11 @@
   margin-left: 300px;
   width: 1250px;
 }
+
+/* Search Bar */
+
+.room-search {
+  width: 500px;
+  margin-left: 1000px;
+  margin-top: 25px;
+}
