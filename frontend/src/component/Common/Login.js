@@ -34,7 +34,7 @@ const Login = props => {
         if(isAuthenticated){
           authContext.setUser(user);
           authContext.setIsAuthenticated(isAuthenticated);
-          props.history.push('/testing');
+          window.location.href = "/testing"
         }
         else{
           swal({title: "Login Failed",
@@ -43,6 +43,8 @@ const Login = props => {
         }
       });
     }
+
+    
   return (
     <>
     <div className="logincard">
@@ -91,7 +93,7 @@ const Login = props => {
                   className="button-18" role="button" id="dloginbtn">Login</button></center>
 
     </form>
-    <h6 style={{padding:"10px"}}>Don't have an Account <Link to="/testing">Register</Link></h6>
+    <h6 style={{padding:"10px"}}>Don't have an Account <Link to="/register">Register</Link></h6>
     <br/>
     </div>
     </div>
