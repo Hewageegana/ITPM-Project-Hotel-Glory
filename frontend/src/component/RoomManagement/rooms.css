@@ -25,17 +25,10 @@
   background-color: whitesmoke;
   border-radius: 15px;
 }
-h1 {
-  margin-left: 260px;
-}
 
 /* Add Rooms */
 
 .add-room-form {
   margin-left: 300px;
   width: 1250px;
-}
-
-.headind-add-newroom {
-  margin-right: 260px;
 }
