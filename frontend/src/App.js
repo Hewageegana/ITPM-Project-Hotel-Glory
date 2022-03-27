@@ -7,6 +7,7 @@ import Login from './component/Common/Login';
 import ViewAllEmployee from './component/StaffManagement/ViewAllEmployee';
 
 import AddCustomer from './component/CustomerManagement/AddCustomer';
+import Header from './component/Common/Headers/Header';
 
 
 
@@ -16,6 +17,7 @@ function App() {
   return (
     <Router>
       <div>
+        <Route path="/" component={Header}/>
         <Route path="/testing" exact component={Testing} />
         <Route path="/user/addstaff" exact component={AddEmployees}/>
         <Route path="/public/login" exact component={Login}/>
