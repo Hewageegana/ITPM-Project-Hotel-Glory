@@ -73,7 +73,7 @@ export default function AddRooms() {
     <>
       <div className="add-room">
         <br />
-        <div className="container">
+        <div className="container customcon">
           <br />
           <center>
             <h1

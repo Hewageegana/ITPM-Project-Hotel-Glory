@@ -73,48 +73,49 @@ export default function Rooms() {
       </div>
 
       {/* Card view for rooms */}
+      <div className="container">
+        <div className="row row-cols-1 row-cols-md-3 g-4">
+          {roomList.map((rooms) => (
+            <div className="cards-position">
+              <div className="col">
+                <div className="container1">
+                  <div className="card" style={{ width: 25 + "rem" }}>
+                    <div className="card-body">
+                      <img
+                        src={rooms.Image}
+                        className="img-fluid"
+                        alt="Responsive image"
+                      />
 
-      <div className="row row-cols-1 row-cols-md-3 g-4">
-        {roomList.map((rooms) => (
-          <div className="cards-position">
-            <div className="col">
-              <div className="container1">
-                <div className="card" style={{ width: 25 + "rem" }}>
-                  <div className="card-body">
-                    <img
-                      src={rooms.Image}
-                      className="img-fluid"
-                      alt="Responsive image"
-                    />
+                      <div className="">
+                        <div key={rooms._Id}>
+                          <div className="card-title">
+                            <h5>{rooms.RoomType}</h5>
+                          </div>
+                          <div className="card-text">
+                            <p> {rooms.description}</p>
+                          </div>
+                          <div className="card-text">
+                            <p>
+                              <b>Price :- LKR.{rooms.Price}/= (Per Night) </b>
+                            </p>
+                          </div>
 
-                    <div className="">
-                      <div key={rooms._Id}>
-                        <div className="card-title">
-                          <h5>{rooms.RoomType}</h5>
+                          <div />
                         </div>
-                        <div className="card-text">
-                          <p> {rooms.description}</p>
-                        </div>
-                        <div className="card-text">
-                          <p>
-                            <b>Price :- LKR.{rooms.Price}/= (Per Night) </b>
-                          </p>
-                        </div>
-
-                        <div />
                       </div>
-                    </div>
-                    <div className="btn-book">
-                      <a href="#" className="btn btn-primary">
-                        Book Now
-                      </a>
+                      <div className="btn-book">
+                        <a href="#" className="btn btn-primary">
+                          Book Now
+                        </a>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </>
   );
