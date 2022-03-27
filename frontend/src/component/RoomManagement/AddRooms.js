@@ -121,8 +121,8 @@ export default function AddRooms() {
                       className="form-control logininput"
                       id="poster"
                       placeholder="Profile Image"
-                      onChange={postDetails}
                       required
+                      onChange={postDetails}
                     />
                   </div>
                 </center>
@@ -134,11 +134,11 @@ export default function AddRooms() {
                         type="text"
                         className="form-control logininput"
                         id="username"
+                        required
                         placeholder="Employee Name"
                         onChange={(e) => {
                           setRoomID(e.target.value);
                         }}
-                        required
                       />
 
                       <label for="floatingInput">Room Number</label>
@@ -152,10 +152,10 @@ export default function AddRooms() {
                         className="form-control logininput"
                         id="nic"
                         placeholder="nic"
+                        required
                         onChange={(e) => {
                           setRoomType(e.target.value);
                         }}
-                        required
                       />
                       <label for="floatingInput">Room Type</label>
                     </div>
@@ -167,11 +167,11 @@ export default function AddRooms() {
                         type="text"
                         className="form-control logininput"
                         id="nic"
+                        required
                         placeholder="nic"
                         onChange={(e) => {
                           setPrice(e.target.value);
                         }}
-                        required
                       />
                       <label for="floatingInput">Price Per Night</label>
                     </div>
@@ -183,11 +183,11 @@ export default function AddRooms() {
                       rows="3"
                       className="form-control logininput"
                       id="address"
+                      required
                       placeholder="Description"
                       onChange={(e) => {
                         setdescription(e.target.value);
                       }}
-                      required
                     />
                   </div>
                   <br />
