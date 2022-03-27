@@ -25,9 +25,6 @@
   background-color: whitesmoke;
   border-radius: 15px;
 }
-h1 {
-  margin-left: 260px;
-}
 
 /* Add Rooms */
 
@@ -36,6 +33,10 @@ h1 {
   width: 1250px;
 }
 
-.headind-add-newroom {
-  margin-right: 260px;
+/* Search Bar */
+
+.room-search {
+  width: 500px;
+  margin-left: 1000px;
+  margin-top: 25px;
 }
