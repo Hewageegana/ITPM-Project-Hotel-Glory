@@ -40,3 +40,24 @@
   margin-left: 1000px;
   margin-top: 25px;
 }
+
+/* Room Management */
+
+.roommanageList {
+  width: 900px;
+  margin-top: 25px;
+}
+
+.room-management-btn-edit-dlt {
+  margin-left: 48px;
+  margin-top: 25px;
+}
+
+.roommanagementBtn {
+  margin-top: 25px;
+}
+
+#roommanagementIMG {
+  height: 80px;
+  width: 149px;
+}
