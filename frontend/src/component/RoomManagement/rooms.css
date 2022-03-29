@@ -58,6 +58,11 @@
 }
 
 #roommanagementIMG {
-  height: 80px;
-  width: 149px;
+  max-height: 80px;
+  max-width: 149px;
+}
+
+.btnAddRoomandReport {
+  margin-top: 40px;
+  margin-left: 1100px;
 }

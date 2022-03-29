@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./rooms.css";
+
 import { Link, useHistory } from "react-router-dom";
 // import { Input } from "antd";
 
@@ -48,55 +49,54 @@ export default function Rooms() {
         </div>
       </div>
 
-      {/* Card view for rooms */}
+      {/* Buttons for Add Room & Report */}
+      <div className="btnAddRoomandReport">
+        <button type="button" class="btn btn-primary btn-sm">
+          ADD A NEW ROOM
+        </button>
+        &nbsp;
+        <button type="button" class="btn btn-primary btn-sm">
+          GENERATE REPORT
+        </button>
+      </div>
+
+      {/* Card view for rooms  */}
       <div className="container roommanageList">
-        <div className="card mb-3">
-          {roomList
-            .filter((val) => {
-              if (searchTerm === "") {
-                return val;
-              } else if (
-                val.RoomType.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                val.Price.toLowerCase().includes(searchTerm.toLowerCase())
-              ) {
-                return val;
-              }
-            })
-            .map((rooms) => (
-              <div className="row">
-                <div className="col-md-2" id="roommanagementIMG">
+        <div className="card">
+          {roomList.map((rooms) => (
+            <div className="row">
+              <div className="col-md-2" id="roommanagementIMG">
+                <div key={rooms._Id}>
                   <img src={rooms.Image} className="img-fluid" alt="..." />
                 </div>
                 <div className="col-md-8">
                   <div className="card-body">
-                    <div key={rooms._Id}>
-                      <h5 className="card-title">{rooms.RoomType}</h5>
-                      <p className="card-text">{rooms.description}</p>
-                      <p className="card-text">
-                        <small className="text-muted">
-                          Price :- LKR.{rooms.Price}/= (Per Night)
-                        </small>
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div className="col-md-2">
-                  <div className="roommanagementBtn">
-                    <button type="button" class="btn btn-success">
-                      Success
-                    </button>
-                    <br />
-                    <br />
-                    <button type="button" class="btn btn-danger">
-                      Danger
-                    </button>
+                    <h5 className="card-title">{rooms.RoomType}</h5>
+                    <p className="card-text">{rooms.description}</p>
+                    <p className="card-text">
+                      <small className="text-muted">
+                        Price :- LKR.{rooms.Price}/= (Per Night)
+                      </small>
+                    </p>
                   </div>
                 </div>
               </div>
-            ))}
+              <div className="col-md-2">
+                <div className="roommanagementBtn">
+                  <button type="button" class="btn btn-success">
+                    Success
+                  </button>
+                  <br />
+                  <br />
+                  <button type="button" class="btn btn-danger">
+                    Danger
+                  </button>
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
-      <br />
     </>
   );
 }
