@@ -11,6 +11,7 @@ import CancelOutlinedIcon from '@material-ui/icons/CancelOutlined';
 import CancelRoundedIcon from '@material-ui/icons/CancelRounded';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import logo from '../../Assets/Images/HotalLOGOLarge.png'
+import imgDefault from '../../Assets/Images/postman.png'
 import call from '../../Assets/Icons/call.png'
 import job from '../../Assets/Icons/job.png'
 import './viewallemployee.css'
@@ -27,12 +28,18 @@ function ViewAllEmployee() {
     const [user, setUser] = useState([]);
     // const [pageNumber, setPageNumber] = useState(0);
     const [staff, setStaff] = useState([]);
+    const [imageLoad, setImageLoad] = useState(true);
 
     useEffect(()=>{
         const getstaff = async()=>{
          const res = await axios.get('/staff/allstaff').then((res)=>{
             setStaff(res.data);
-          })
+          }).catch(()=>{
+            window.location.href = "/public/login"
+            swal({title: "unauthorized",
+            text: "Please Login First",
+            icon: "warning"} ); 
+        })
         }
         getstaff();
       }, []);
@@ -160,7 +167,7 @@ function ViewAllEmployee() {
                       <div className="row g-3">
                         <div className="column filmpage-imagecol">
                           <div className="filmimage card">
-                            <img src={f.profileImg} className="filmimg" />
+                            <img src={f.profileImg} alt="Profile Img" className="filmimg" />
                           </div>
                           </div>
                        <div className="column filmpage-namecol">
@@ -170,7 +177,7 @@ function ViewAllEmployee() {
                           <h6 style={{ marginTop:"0px"}}><img src={identity} style={{width: "25px"}}/> {f.nic}</h6>
                           
                           <h6 style={{ marginTop:"0px"}}><img src={job} style={{width: "25px"}}/> {f.jobtitle}</h6>
-                          <h6 style={{ marginTop:"0px"}}><img src={call} style={{width: "25px"}}/> {f.contactNo}</h6>
+                          <h6 style={{ marginTop:"0px"}}><img src={call} style={{width: "25px"}}/>{f.code}{f.contactNo}</h6>
 
    
                     
@@ -181,7 +188,7 @@ function ViewAllEmployee() {
       <IconButton  title="View Attendance" aria-label="delete">
                          <CalendarMonthIcon fontSize="medium" style={{ color: "lime" }}/> 
                          </IconButton></Link>
-                    <Link to={"/testing"}>
+                    <Link to={"/staff/update/"+f._id}>
       <IconButton title="Edit Employee" aria-label="delete">
                          <EditIcon fontSize="medium" color="primary"/> 
                          </IconButton></Link>

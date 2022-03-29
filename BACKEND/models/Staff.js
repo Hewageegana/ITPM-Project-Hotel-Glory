@@ -10,6 +10,10 @@ const staffSchema = new Schema({
     type: String,
     required: true
   },
+  code:{
+    type: String,
+    required: true
+  },
   address:{
     type:String,
     required: true

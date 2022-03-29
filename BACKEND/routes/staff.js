@@ -6,7 +6,7 @@ const Staff = require('../models/Staff');
 
 // ADD New Staff Member to the System
 staffRouter.post('/addstaff',passport.authenticate('jwt',{session : false}),(req,res)=>{
-    const {name,contactNo,address,nic,gender,jobtitle,martialStatus,age,profileImg,email} = req.body;
+    const {name,contactNo,code,address,nic,gender,jobtitle,martialStatus,age,profileImg,email} = req.body;
   
     if(req.user.role === 'staff' || req.user.role === 'admin'){
     Staff.findOne({nic},(err,staff)=>{
@@ -18,6 +18,7 @@ staffRouter.post('/addstaff',passport.authenticate('jwt',{session : false}),(req
             const newStaff = new Staff({
                 name,
                 contactNo,
+                code,
                 address,
                 nic,
                 gender,
@@ -73,11 +74,12 @@ staffRouter.get('/getStaff/:id',passport.authenticate('jwt',{session : false}),(
   //Update Staff Member Details
   staffRouter.put('/staffupdate/:id',passport.authenticate('jwt',{session : false}),(req,res)=>{
     let staffId = req.params.id;
-    const {name,contactNo,address,nic,gender,jobtitle,martialStatus,age,profileImg,email} = req.body;
+    const {name,contactNo,code,address,nic,gender,jobtitle,martialStatus,age,profileImg,email} = req.body;
   
     const updateStaff = {
         name,
         contactNo,
+        code,
         address,
         nic,
         gender,
