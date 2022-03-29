@@ -9,6 +9,7 @@ import AddCustomer from './component/CustomerManagement/AddCustomer';
 import Header from './component/Common/Headers/Header';
 import Rooms from "./component/RoomManagement/Rooms";
 import AddRooms from "./component/RoomManagement/AddRooms";
+import UpdateEmployee from './component/StaffManagement/UpdateEmployee';
 
 
 
@@ -24,6 +25,7 @@ function App() {
         <Route path="/public/login" exact component={Login} />
         <Route path="/user/viewallstaff" exact component={ViewAllEmployee} />
         <Route path="/register" exact component={AddCustomer} />
+        <Route path="/staff/update/:id" exact component={UpdateEmployee}/>
       </div>
     </Router>
   );
