@@ -51,50 +51,76 @@ export default function Rooms() {
 
       {/* Buttons for Add Room & Report */}
       <div className="btnAddRoomandReport">
-        <button type="button" class="btn btn-primary btn-sm">
-          ADD A NEW ROOM
-        </button>
+        <Link to="/addrooms">
+          <button type="button" class="btn btn-primary btn-sm">
+            ADD A NEW ROOM
+          </button>
+        </Link>
         &nbsp;
-        <button type="button" class="btn btn-primary btn-sm">
-          GENERATE REPORT
-        </button>
+        <Link to="/addrooms">
+          <button type="button" class="btn btn-primary btn-sm">
+            GENERATE REPORT
+          </button>
+        </Link>
       </div>
 
-      {/* Card view for rooms  */}
-      <div className="container roommanageList">
-        <div className="card">
-          {roomList.map((rooms) => (
-            <div className="row">
-              <div className="col-md-2" id="roommanagementIMG">
-                <div key={rooms._Id}>
-                  <img src={rooms.Image} className="img-fluid" alt="..." />
-                </div>
-                <div className="col-md-8">
-                  <div className="card-body">
-                    <h5 className="card-title">{rooms.RoomType}</h5>
-                    <p className="card-text">{rooms.description}</p>
-                    <p className="card-text">
-                      <small className="text-muted">
-                        Price :- LKR.{rooms.Price}/= (Per Night)
-                      </small>
-                    </p>
+      {/* Card view */}
+      <div className="staffcard">
+        <div className="container" id="cardviewforstaff">
+          <div class="card mb-3">
+            {roomList
+              .filter((val) => {
+                if (searchTerm === "") {
+                  return val;
+                } else if (
+                  val.RoomType.toLowerCase().includes(
+                    searchTerm.toLowerCase()
+                  ) ||
+                  val.Price.toLowerCase().includes(searchTerm.toLowerCase())
+                ) {
+                  return val;
+                }
+              })
+              .map((rooms) => (
+                <div
+                  class="row
+                
+                  "
+                >
+                  <div class="col-md-10">
+                    <div class="card-body">
+                      <div key={rooms._Id}>
+                        <h5 class="card-title">{rooms.RoomType}</h5>
+                        <p class="card-text">{rooms.description}</p>
+                        <p class="card-text">
+                          <small class="text-muted">
+                            Price :- LKR.{rooms.Price}/= (Per Night)
+                          </small>
+                        </p>
+                      </div>
+                    </div>
                   </div>
-                </div>
-              </div>
-              <div className="col-md-2">
-                <div className="roommanagementBtn">
-                  <button type="button" class="btn btn-success">
-                    Success
-                  </button>
+
+                  <div class="col-md-2">
+                    <div class="" id="roommanagementbutton">
+                      <center>
+                        <button type="button" class="btn btn-success">
+                          UPDATE
+                        </button>
+                        <br />
+                        <br />
+                        <button type="button" class="btn btn-danger">
+                          DELETE
+                        </button>
+                      </center>
+                    </div>
+                  </div>
                   <br />
                   <br />
-                  <button type="button" class="btn btn-danger">
-                    Danger
-                  </button>
+                  <hr style={{ height: 10 + "px" }}></hr>
                 </div>
-              </div>
-            </div>
-          ))}
+              ))}
+          </div>
         </div>
       </div>
     </>

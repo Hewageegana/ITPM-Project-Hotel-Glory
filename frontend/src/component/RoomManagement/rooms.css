@@ -48,9 +48,9 @@
   margin-top: 25px;
 }
 
-.room-management-btn-edit-dlt {
-  margin-left: 48px;
+#roommanagementbutton {
   margin-top: 25px;
+  margin-left: 0px;
 }
 
 .roommanagementBtn {
@@ -65,4 +65,16 @@
 .btnAddRoomandReport {
   margin-top: 40px;
   margin-left: 1100px;
+}
+
+#cardviewforstaff {
+  width: 800px;
+}
+.roommanagementImg {
+  width: 400px;
+  height: 350px;
+}
+
+.staffcard {
+  margin-top: 50px;
 }
