@@ -53,20 +53,40 @@ export default function AddRooms() {
       description,
       Image,
     };
-    axios
-      .post("/rooms/add", newRoom)
-      .then(() => {
-        swal({
-          title: "Success!",
-          text: "Successfully added the room",
-          icon: "success",
-          button: "Ok",
-        });
-        history.push(path2);
-      })
-      .catch((e) => {
-        swal("Please fill Form correctly" + e);
-      });
+    // axios
+    //   .post("/rooms/add", newRoom)
+    //   .then(() => {
+    //     swal({
+    //       title: "Success!",
+    //       text: "Successfully added the room",
+    //       icon: "success",
+    //       button: "Ok",
+    //     });
+    //     history.push(path2);
+    //   })
+    //   .catch((e) => {
+    //     swal("Please fill Form correctly" + e);
+    //   });
+
+    // useEffect(() => {
+    //   axios
+    //     .get(`/rooms/rooms/${id}`)
+    //     .then((res) => {
+    //       setRoomID(res.data.RoomId);
+    //       setRoomType(res.data.staff.RoomType);
+    //       setPrice(res.data.staff.Price);
+    //       setdescription(res.data.staff.description);
+    //       setImage(res.data.staff.Image);
+    //     })
+    //     .catch((e) => {
+    //       window.location.href = "/public/login";
+    //       swal({
+    //         title: "unauthorized",
+    //         text: "Please Login First " + e,
+    //         icon: "warning",
+    //       });
+    //     });
+    // }, []);
   }
 
   return (
@@ -83,7 +103,7 @@ export default function AddRooms() {
                 fontWeight: "600",
               }}
             >
-              ADD NEW ROOM
+              UPDATE EXISTING ROOM DETAILS
             </h1>
           </center>
           <div className="register">
