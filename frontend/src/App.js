@@ -12,6 +12,7 @@ import AddRooms from "./component/RoomManagement/AddRooms";
 import ManageRooms from "./component/RoomManagement/ManageRooms";
 import UpdateEmployee from "./component/StaffManagement/UpdateEmployee";
 import UpdateRoom from "./component/RoomManagement/UpdateRoom";
+import HomePage from "./component/Common/Home Page/Homepage";
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
         <Route path="/managerooms" exact component={ManageRooms} />
         <Route path="/staff/update/:id" exact component={UpdateEmployee} />
         <Route path="/updateroom" exact component={UpdateRoom} />
+        <Route path="/" exact component={HomePage} />
       </div>
     </Router>
   );
