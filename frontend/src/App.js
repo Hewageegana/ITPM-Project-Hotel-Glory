@@ -11,6 +11,8 @@ import Rooms from "./component/RoomManagement/Rooms";
 import AddRooms from "./component/RoomManagement/AddRooms";
 import ManageRooms from "./component/RoomManagement/ManageRooms";
 
+import UpdateEmployee from "./component/StaffManagement/UpdateEmployee";
+
 function App() {
   return (
     <Router>
@@ -23,7 +25,10 @@ function App() {
         <Route path="/public/login" exact component={Login} />
         <Route path="/user/viewallstaff" exact component={ViewAllEmployee} />
         <Route path="/register" exact component={AddCustomer} />
+
         <Route path="/managerooms" exact component={ManageRooms} />
+
+        <Route path="/staff/update/:id" exact component={UpdateEmployee} />
       </div>
     </Router>
   );

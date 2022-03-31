@@ -11,6 +11,7 @@ import CancelOutlinedIcon from "@material-ui/icons/CancelOutlined";
 import CancelRoundedIcon from "@material-ui/icons/CancelRounded";
 import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import logo from "../../Assets/Images/HotalLOGOLarge.png";
+import imgDefault from "../../Assets/Images/postman.png";
 import call from "../../Assets/Icons/call.png";
 import job from "../../Assets/Icons/job.png";
 import "./viewallemployee.css";
