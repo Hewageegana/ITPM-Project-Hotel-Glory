@@ -92,12 +92,16 @@ export default function AddBooking(){
 
     return(
         <>
+
+        
         <div className="bookingform">
             <center>
         <div className="add-booking-form">
-        <form>
-
+        <div className="bookingtopic"><h1>ADD NEW BOOKING</h1></div>
+        <br/>
+        <form method="get" className="addbookingform">
 <div class="row">
+   
   <div class="col">
     <input type="text" class="form-control" placeholder="Full name" aria-label="First name"
     onChange={(e)=>{
