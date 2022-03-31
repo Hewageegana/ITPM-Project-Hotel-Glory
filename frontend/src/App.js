@@ -10,6 +10,7 @@ import Header from './component/Common/Headers/Header';
 import Rooms from "./component/RoomManagement/Rooms";
 import AddRooms from "./component/RoomManagement/AddRooms";
 import UpdateEmployee from './component/StaffManagement/UpdateEmployee';
+import StaffProfile from './component/StaffManagement/StaffProfile';
 
 
 
@@ -26,6 +27,7 @@ function App() {
         <Route path="/user/viewallstaff" exact component={ViewAllEmployee} />
         <Route path="/register" exact component={AddCustomer} />
         <Route path="/staff/update/:id" exact component={UpdateEmployee}/>
+        <Route path="/staff/staffprofile/:id" exact component={StaffProfile}/>
       </div>
     </Router>
   );

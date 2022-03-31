@@ -171,7 +171,7 @@ function ViewAllEmployee() {
                           </div>
                           </div>
                        <div className="column filmpage-namecol">
-                       <Link to={"/testing"}><h5 style={{marginTop:"20px",marginRight:"80px"}} className="filmpage-nameh5" >{f.name}</h5></Link>
+                       <Link to={"/staff/staffprofile/"+f._id}><h5 style={{marginTop:"20px",marginRight:"80px"}} className="filmpage-nameh5" >{f.name}</h5></Link>
                        <h6 style={{ marginTop:"2px"}}><img src={mail} style={{width: "25px"}}/> {f.email}</h6>
 
                           <h6 style={{ marginTop:"0px"}}><img src={identity} style={{width: "25px"}}/> {f.nic}</h6>
