@@ -53,20 +53,20 @@ export default function AddRooms() {
       description,
       Image,
     };
-    // axios
-    //   .post("/rooms/add", newRoom)
-    //   .then(() => {
-    //     swal({
-    //       title: "Success!",
-    //       text: "Successfully added the room",
-    //       icon: "success",
-    //       button: "Ok",
-    //     });
-    //     history.push(path2);
-    //   })
-    //   .catch((e) => {
-    //     swal("Please fill Form correctly" + e);
-    //   });
+    axios
+      .post("/rooms/add", newRoom)
+      .then(() => {
+        swal({
+          title: "Success!",
+          text: "Successfully added the room",
+          icon: "success",
+          button: "Ok",
+        });
+        history.push(path2);
+      })
+      .catch((e) => {
+        swal("Please fill Form correctly" + e);
+      });
 
     // useEffect(() => {
     //   axios
