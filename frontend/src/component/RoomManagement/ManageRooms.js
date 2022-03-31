@@ -57,7 +57,7 @@ export default function Rooms() {
           </button>
         </Link>
         &nbsp;
-        <Link to="/addrooms">
+        <Link to="#">
           <button type="button" class="btn btn-primary btn-sm">
             GENERATE REPORT
           </button>
@@ -104,9 +104,11 @@ export default function Rooms() {
                   <div class="col-md-2">
                     <div class="" id="roommanagementbutton">
                       <center>
-                        <button type="button" class="btn btn-success">
-                          UPDATE
-                        </button>
+                        <Link to="/updateroom">
+                          <button type="button" class="btn btn-success">
+                            UPDATE
+                          </button>
+                        </Link>
                         <br />
                         <br />
                         <button type="button" class="btn btn-danger">
