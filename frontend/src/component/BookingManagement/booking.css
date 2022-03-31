@@ -1,0 +1,38 @@
+.add-booking-form{
+    width: 600px;
+    height: 600px;
+   
+    margin-top: 125
+    px;
+
+
+
+
+}
+
+.btn btn-primary{
+
+    width: 600px;
+    height: 600px;
+    margin-left: 470px;
+    margin-top: 100px;
+
+
+
+
+}
+
+#booking-confirm{
+    margin-left: 10px;
+}
+
+
+
+.bookingform{
+    background-color: whitesmoke;
+   
+}
+
+.bookingtopic{
+    margin-left: 40px;
+}
