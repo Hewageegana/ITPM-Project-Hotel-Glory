@@ -23,6 +23,11 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
+body{
+  color: #1f1f38;
+  text-align: left;
+  background-color: #1f1f38;    
+}
 
 .App-link {
   color: #61dafb;
