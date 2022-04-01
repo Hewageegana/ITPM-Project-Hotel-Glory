@@ -204,7 +204,7 @@ function ViewAllEmployee() {
                         </div>
                       </div>
                       <div className="column filmpage-namecol">
-                        <Link to={"/testing"}>
+                        <Link to={"/staff/staffprofile/"+f._id}>
                           <h5
                             style={{ marginTop: "20px", marginRight: "80px" }}
                             className="filmpage-nameh5"
@@ -274,118 +274,5 @@ function ViewAllEmployee() {
     </>
   );
 }
-
-
-//   return (
-//     <>
-//     <br/>
-//     <div className="container filmpage customcon">
-//       <br/>
-//       <center><h1 style={{letterSpacing:"5px", fontSize:"30px" , fontWeight:"600"}}>ALL STAFF</h1></center>
-
-//     <input className="search sfocus"  type="text" placeholder="Search" aria-label="Search"  
-//       onChange={(e) => {
-//           setsearchTerm(e.target.value)
-//       }}/>
-
-
-// &nbsp;&nbsp;<Link to="/user/addstaff"><button type="submit" className="btn btn-outline-info allempreg" id="regsubmit">New Employee</button></Link>
-// &nbsp;&nbsp;<Link to="/testing"><button type="submit" className="btn btn-outline-info allempreg" id="regsubmit">Attendance</button></Link>
-// &nbsp;&nbsp;<button type="submit" className="btn btn-outline-info allempreg" id="regsubmit" onClick={()=> generatePDF(staff)}>Report</button>
-
-// <hr className="hrView"/>
-// {staff.length === 0?<> 
-
-//   <div className="card border-dark mb-3 emptycard">
-//                       <div className="row g-3">
-//                         <div className="column filmpage-imagecol">
-//                           <div className="filmimage">
-//                           <center><img src={logo} className="filmimg2"/> </center>
-//                           </div>
-//                           </div>
-//                        <div className="column filmpage-namecol">
-//                           <h3 style={{margin:"20px", fontWeight:"700"}}>Add Your First Employee!</h3>
-//                           <center><p><Link to="/staff/addstaff"><button type="submit" className="button-28" role="button" id="regsubmit">Add New Employee</button></Link></p></center>
-
-                    
-//                     </div>
-//                     <div className="column filmpage-iconcol">
-//                     <div className="filmicon">
-//                          </div>
-//                     </div>
-//                     </div>
-//                     </div>
-//                     <br/>
-//                    </>:
-      
-                
-                
-//         <div className="filmcard">
-//             {staff.filter((val) => {
-//                   if (searchTerm === "") {
-//                     return val
-//                   } else if (
-//                     val.name
-//                       .toLowerCase()
-//                       .includes(searchTerm.toLowerCase()) ||
-//                     val.nic
-//                       .toLowerCase()
-//                       .includes(searchTerm.toLowerCase()) ||
-//                       val.jobtitle
-//                         .toLowerCase()
-//                         .includes(searchTerm.toLowerCase())
-//                   ) {
-//                     return val
-//                   }
-//                 }).map(function(f){
-//                   return (
-//                     <div className="card mb-2 filmcard1">
-//                       <div className="row g-3">
-//                         <div className="column filmpage-imagecol">
-//                           <div className="filmimage card">
-//                             <img src={f.profileImg} alt="Profile Img" className="filmimg" />
-//                           </div>
-//                           </div>
-//                        <div className="column filmpage-namecol">
-//                        <Link to={"/staff/staffprofile/"+f._id}><h5 style={{marginTop:"20px",marginRight:"80px"}} className="filmpage-nameh5" >{f.name}</h5></Link>
-//                        <h6 style={{ marginTop:"2px"}}><img src={mail} style={{width: "25px"}}/> {f.email}</h6>
-
-//                           <h6 style={{ marginTop:"0px"}}><img src={identity} style={{width: "25px"}}/> {f.nic}</h6>
-                          
-//                           <h6 style={{ marginTop:"0px"}}><img src={job} style={{width: "25px"}}/> {f.jobtitle}</h6>
-//                           <h6 style={{ marginTop:"0px"}}><img src={call} style={{width: "25px"}}/>{f.code}{f.contactNo}</h6>
-
-   
-                    
-//                     </div>
-//                     <div className="column filmpage-iconcol">
-//                     <div className="filmicon">
-//                     <Link to={"/testing"}>
-//       <IconButton  title="View Attendance" aria-label="delete">
-//                          <CalendarMonthIcon fontSize="medium" style={{ color: "lime" }}/> 
-//                          </IconButton></Link>
-//                     <Link to={"/staff/update/"+f._id}>
-//       <IconButton title="Edit Employee" aria-label="delete">
-//                          <EditIcon fontSize="medium" color="primary"/> 
-//                          </IconButton></Link>
-//                     <IconButton title="Delete Employee" aria-label="delete" onClick={() =>  deleteStaff(f._id)}>
-//                          <CancelRoundedIcon fontSize="large" color="secondary"/> 
-//                          </IconButton> 
-
-//                          </div>
-//                     </div>
-//                     </div>
-//                     </div>
-
-
-
-//          )
-//                 })}
-//        </div>}
-//        <br/>
-//     </div>
-//     </>
-//   )
-// }
 
 export default ViewAllEmployee
