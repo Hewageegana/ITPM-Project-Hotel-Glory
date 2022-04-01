@@ -40,3 +40,41 @@
   margin-left: 1000px;
   margin-top: 25px;
 }
+
+/* Room Management */
+
+.roommanageList {
+  width: 900px;
+  margin-top: 25px;
+}
+
+#roommanagementbutton {
+  margin-top: 25px;
+  margin-left: 0px;
+}
+
+.roommanagementBtn {
+  margin-top: 25px;
+}
+
+#roommanagementIMG {
+  max-height: 80px;
+  max-width: 149px;
+}
+
+.btnAddRoomandReport {
+  margin-top: 40px;
+  margin-left: 1100px;
+}
+
+#cardviewforstaff {
+  width: 800px;
+}
+.roommanagementImg {
+  width: 400px;
+  height: 350px;
+}
+
+.staffcard {
+  margin-top: 50px;
+}
