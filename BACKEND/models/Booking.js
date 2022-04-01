@@ -31,7 +31,7 @@ const BookingSchema = new mongoose.Schema({
   },
   Rooms: {
     type: String,
-    required: true,
+    
   },
 
   RoomType: {
@@ -42,17 +42,17 @@ const BookingSchema = new mongoose.Schema({
 
   Nights: {
     type: String,
-    required: true,
+    
   },
 
   Adults: {
     type: String,
-    required: true,
+    
   },
 
   Children: {
     type: String,
-    required: true,
+    
   },
 });
 
