@@ -34,7 +34,7 @@ const Login = props => {
         if(isAuthenticated){
           authContext.setUser(user);
           authContext.setIsAuthenticated(isAuthenticated);
-          window.location.href = "/testing"
+          window.location.href = "/"
         }
         else{
           swal({title: "Login Failed",
