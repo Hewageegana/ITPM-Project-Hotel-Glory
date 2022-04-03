@@ -13,8 +13,10 @@ export default function AddRooms() {
     formState: { errors },
   } = useForm();
   let history = useHistory();
-  let path2 = "/testing";
+  let path2 = "/managerooms";
 
+  const [room, setRoom] = useState([]);
+  const { id } = useParams();
   const [RoomId, setRoomID] = useState("");
   const [RoomType, setRoomType] = useState("");
   const [Price, setPrice] = useState("");
@@ -54,7 +56,7 @@ export default function AddRooms() {
       Image,
     };
     axios
-      .post("/rooms/add", newRoom)
+      .put(`/rooms/update/${id}`, newRoom)
       .then(() => {
         swal({
           title: "Success!",
@@ -67,27 +69,26 @@ export default function AddRooms() {
       .catch((e) => {
         swal("Please fill Form correctly" + e);
       });
-
-    // useEffect(() => {
-    //   axios
-    //     .get(`/rooms/rooms/${id}`)
-    //     .then((res) => {
-    //       setRoomID(res.data.RoomId);
-    //       setRoomType(res.data.staff.RoomType);
-    //       setPrice(res.data.staff.Price);
-    //       setdescription(res.data.staff.description);
-    //       setImage(res.data.staff.Image);
-    //     })
-    //     .catch((e) => {
-    //       window.location.href = "/public/login";
-    //       swal({
-    //         title: "unauthorized",
-    //         text: "Please Login First " + e,
-    //         icon: "warning",
-    //       });
-    //     });
-    // }, []);
   }
+  useEffect(() => {
+    axios
+      .get(`/rooms/rooms/${id}`)
+      .then((res) => {
+        setRoomID(res.data.RoomId);
+        setRoomType(res.data.RoomType);
+        setPrice(res.data.Price);
+        setdescription(res.data.description);
+        setImage(res.data.Image);
+      })
+      .catch((e) => {
+        // window.location.href = "/public/login";
+        swal({
+          title: "unauthorized",
+          text: "Please Login First " + e,
+          icon: "warning",
+        });
+      });
+  }, []);
 
   return (
     <>
@@ -126,11 +127,7 @@ export default function AddRooms() {
                           </center>
                         ) : (
                           <center>
-                            <img
-                              src={Image}
-                              className="posterimg"
-                              style={{ width: "150px" }}
-                            />
+                            <img src={Image} className="posterimg" />
                           </center>
                         )}
                       </div>
@@ -154,8 +151,9 @@ export default function AddRooms() {
                         type="text"
                         className="form-control logininput"
                         id="username"
+                        defaultValue={RoomId}
                         required
-                        placeholder="Employee Name"
+                        placeholder="Room Number"
                         onChange={(e) => {
                           setRoomID(e.target.value);
                         }}
@@ -171,7 +169,8 @@ export default function AddRooms() {
                         type="text"
                         className="form-control logininput"
                         id="nic"
-                        placeholder="nic"
+                        placeholder="Room Type"
+                        defaultValue={RoomType}
                         required
                         onChange={(e) => {
                           setRoomType(e.target.value);
@@ -188,7 +187,8 @@ export default function AddRooms() {
                         className="form-control logininput"
                         id="nic"
                         required
-                        placeholder="nic"
+                        placeholder="Price"
+                        defaultValue={Price}
                         onChange={(e) => {
                           setPrice(e.target.value);
                         }}
@@ -205,6 +205,7 @@ export default function AddRooms() {
                       id="address"
                       required
                       placeholder="Description"
+                      defaultValue={description}
                       onChange={(e) => {
                         setdescription(e.target.value);
                       }}

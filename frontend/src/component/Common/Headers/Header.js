@@ -95,19 +95,26 @@ const Header = (props) => {
                       Home
                     </a>
                   </li>
-                  <li class="nav-item">
-                    <Link to="/rooms" class="nav-link">
-                      Rooms
-                    </Link>
-                  </li>
                   {user.role === "user" ? (
-                    <li class="nav-item">
-                      <Link to="/testing" class="nav-link">
-                        My Bookings
-                      </Link>
-                    </li>
+                    <>
+                      <li class="nav-item">
+                        <Link to="/rooms" class="nav-link">
+                          Rooms
+                        </Link>
+                      </li>
+                      <li class="nav-item">
+                        <Link to="/testing" class="nav-link">
+                          My Bookings
+                        </Link>
+                      </li>
+                    </>
                   ) : user.role === "staff" ? (
                     <>
+                      <li class="nav-item">
+                        <Link to="/managerooms" class="nav-link">
+                          Rooms
+                        </Link>
+                      </li>
                       <li class="nav-item">
                         <Link to="/testing" class="nav-link">
                           Bookings
