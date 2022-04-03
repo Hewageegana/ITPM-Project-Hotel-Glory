@@ -13,7 +13,7 @@ export default function AddRooms() {
     formState: { errors },
   } = useForm();
   let history = useHistory();
-  let path2 = "/testing";
+  let path2 = "/managerooms";
 
   const [RoomId, setRoomID] = useState("");
   const [RoomType, setRoomType] = useState("");
@@ -106,11 +106,7 @@ export default function AddRooms() {
                           </center>
                         ) : (
                           <center>
-                            <img
-                              src={Image}
-                              className="posterimg"
-                              style={{ width: "150px" }}
-                            />
+                            <img src={Image} className="posterimg" />
                           </center>
                         )}
                       </div>
