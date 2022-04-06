@@ -138,12 +138,6 @@ const Header = (props) => {
                       role="status"
                     ></div>
                   )}
-
-                  <li class="nav-item">
-                    <Link to="/testing" class="nav-link">
-                      Profile
-                    </Link>
-                  </li>
                 </ul>
                 <div className="scrollStop">
                   <div class="dropdown">
@@ -167,7 +161,7 @@ const Header = (props) => {
                       aria-labelledby="dropdownMenuButton1"
                     >
                       <li>
-                        <a class="dropdown-item" href="#">
+                        <a class="dropdown-item" href="/userprofile">
                           Profile
                         </a>
                       </li>
