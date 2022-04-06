@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-import img from "../../Assets/Images/img.jpg";
-import img1 from "../../Assets/Images/img7.jpg";
-import img2 from "../../Assets/Images/img6.jpg";
+import img from "../../Assets/Images/img8.jpg";
+import img1 from "../../Assets/Images/img10.jpg";
+import img2 from "../../Assets/Images/img11.jpg";
 import "./rooms.css";
 import { Link, useHistory } from "react-router-dom";
 // import { Input } from "antd";
@@ -50,7 +50,7 @@ export default function Rooms() {
               <img src={img2} className="img-slider" alt="Looking for job?" />
             </div>
           </div>
-          <button
+          {/* <button
             class="carousel-control-prev"
             type="button"
             data-bs-target="#carouselExampleControls"
@@ -68,7 +68,7 @@ export default function Rooms() {
           >
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Next</span>
-          </button>
+          </button> */}
         </div>
       </div>
 
