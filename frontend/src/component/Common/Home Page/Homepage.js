@@ -8,7 +8,7 @@ import img2 from "../../../Assets/Images/img6.jpg";
 export default function HomePage() {
   return (
     <>
-      <div className="container">
+      <div className="">
         <div className="homepage">
           <div
             id="carouselExampleCaptions"

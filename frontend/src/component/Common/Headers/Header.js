@@ -95,19 +95,26 @@ const Header = (props) => {
                       Home
                     </a>
                   </li>
-                  <li class="nav-item">
-                    <Link to="/rooms" class="nav-link">
-                      Rooms
-                    </Link>
-                  </li>
                   {user.role === "user" ? (
-                    <li class="nav-item">
-                      <Link to="/testing" class="nav-link">
-                        My Bookings
-                      </Link>
-                    </li>
+                    <>
+                      <li class="nav-item">
+                        <Link to="/rooms" class="nav-link">
+                          Rooms
+                        </Link>
+                      </li>
+                      <li class="nav-item">
+                        <Link to="/testing" class="nav-link">
+                          My Bookings
+                        </Link>
+                      </li>
+                    </>
                   ) : user.role === "staff" ? (
                     <>
+                      <li class="nav-item">
+                        <Link to="/managerooms" class="nav-link">
+                          Rooms
+                        </Link>
+                      </li>
                       <li class="nav-item">
                         <Link to="/testing" class="nav-link">
                           Bookings
@@ -131,12 +138,6 @@ const Header = (props) => {
                       role="status"
                     ></div>
                   )}
-
-                  <li class="nav-item">
-                    <Link to="/testing" class="nav-link">
-                      Profile
-                    </Link>
-                  </li>
                 </ul>
                 <div className="scrollStop">
                   <div class="dropdown">
@@ -160,7 +161,7 @@ const Header = (props) => {
                       aria-labelledby="dropdownMenuButton1"
                     >
                       <li>
-                        <a class="dropdown-item" href="#">
+                        <a class="dropdown-item" href="/userprofile">
                           Profile
                         </a>
                       </li>

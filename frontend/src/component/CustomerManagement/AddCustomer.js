@@ -62,7 +62,7 @@ export default function AddCustomer() {
             dob,
             image,
             username,
-            password,
+            password,  
         }
         axios.post('/user/register', newCustomer).then(()=>{
             swal({
