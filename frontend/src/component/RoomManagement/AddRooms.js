@@ -131,7 +131,7 @@ export default function AddRooms() {
                         className="form-control logininput"
                         id="username"
                         required
-                        placeholder="Employee Name"
+                        placeholder="Room Number"
                         onChange={(e) => {
                           setRoomID(e.target.value);
                         }}
@@ -147,7 +147,7 @@ export default function AddRooms() {
                         type="text"
                         className="form-control logininput"
                         id="nic"
-                        placeholder="nic"
+                        placeholder="Room Type"
                         required
                         onChange={(e) => {
                           setRoomType(e.target.value);
@@ -164,7 +164,7 @@ export default function AddRooms() {
                         className="form-control logininput"
                         id="nic"
                         required
-                        placeholder="nic"
+                        placeholder="Price Per Night"
                         onChange={(e) => {
                           setPrice(e.target.value);
                         }}

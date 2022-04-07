@@ -218,11 +218,11 @@ export default function AddRooms() {
                     onClick={handleSubmit(sendData)}
                     id="regsubmit"
                   >
-                    Submit
+                    Update
                   </button>
                   &nbsp;&nbsp;
                   <button type="reset" className="btnreset" id="regreset">
-                    Reset
+                    Cancel
                   </button>
                 </div>
               </form>
