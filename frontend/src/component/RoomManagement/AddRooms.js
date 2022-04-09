@@ -83,7 +83,7 @@ export default function AddRooms() {
                 fontWeight: "600",
               }}
             >
-              ADD NEW ROOM
+              ADD A NEW ROOM
             </h1>
           </center>
           <div className="register">
