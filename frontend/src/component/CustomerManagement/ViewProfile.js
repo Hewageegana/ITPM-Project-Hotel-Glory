@@ -28,7 +28,7 @@ function ViewProfile(props) {
     const deleteuser = (id) => {
         swal({
             title: "Are you sure?",
-            text: "Employee Will be permenatly remove from System",
+            text: "Customer Will be permenatly remove from System",
             icon: "warning",
             buttons: true,
             dangerMode: true,
@@ -37,13 +37,13 @@ function ViewProfile(props) {
                 axios.delete(`/user/delete/${id}`).then(() => {
 
                     if (willDelete) {
-                        swal("The Employee has been deleted!",
+                        swal("The Customer has been deleted!",
                             { icon: "success", });
                         setTimeout(function () {
                             window.location.reload();
                         }, 1000);
                     } else {
-                        swal("Empoyee Is Not Deleted");
+                        swal("Customer Is Not Deleted");
                     }
                 })
             }
@@ -61,7 +61,7 @@ function ViewProfile(props) {
                         <div className="row g-3">
                             <div className="column staffpage-imagecol">
                                 <div className="staffimage card">
-                                <img src={user.image} alt="Profile Img" className="userimg" />
+                                <img src={user.image} alt="Profile Img" className= "staffimg" />
                                 </div>
                             </div>
 
@@ -78,7 +78,7 @@ function ViewProfile(props) {
                                     <Link to={"/testing"}>
                                         </Link>
                                     <Link to={"/user/userupdate/" + user._id}>
-                                        <IconButton title="Edit Employee" aria-label="delete">
+                                        <IconButton title="Edit Customer" aria-label="delete">
                                             <EditIcon fontSize="medium" color="primary" />
                                         </IconButton></Link>
                                     <IconButton title="Delete User" aria-label="delete" onClick={() => deleteuser(user._id)}>
