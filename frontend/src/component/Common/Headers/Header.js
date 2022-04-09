@@ -55,7 +55,7 @@ const Header = (props) => {
       >
         <div class="container-fluid">
           <a class="navbar-brand" href="#">
-            <img src={logo} alt="" width="30" height="24" />
+            <img src={logo} alt="" width="40" height="40" />
           </a>
           <button
             class="navbar-toggler"
