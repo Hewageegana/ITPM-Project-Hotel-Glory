@@ -243,7 +243,7 @@ function ViewAllEmployee() {
                               />
                             </IconButton>
                           </Link>
-                          <Link to={"/testing"}>
+                          <Link to={"/staff/update/"+f._id}>
                             <IconButton
                               title="Edit Employee"
                               aria-label="delete"

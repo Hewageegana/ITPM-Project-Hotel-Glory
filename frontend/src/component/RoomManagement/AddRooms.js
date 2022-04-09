@@ -13,7 +13,7 @@ export default function AddRooms() {
     formState: { errors },
   } = useForm();
   let history = useHistory();
-  let path2 = "/testing";
+  let path2 = "/managerooms";
 
   const [RoomId, setRoomID] = useState("");
   const [RoomType, setRoomType] = useState("");
@@ -83,7 +83,7 @@ export default function AddRooms() {
                 fontWeight: "600",
               }}
             >
-              ADD NEW ROOM
+              ADD A NEW ROOM
             </h1>
           </center>
           <div className="register">
@@ -106,11 +106,7 @@ export default function AddRooms() {
                           </center>
                         ) : (
                           <center>
-                            <img
-                              src={Image}
-                              className="posterimg"
-                              style={{ width: "150px" }}
-                            />
+                            <img src={Image} className="posterimg" />
                           </center>
                         )}
                       </div>
@@ -135,7 +131,7 @@ export default function AddRooms() {
                         className="form-control logininput"
                         id="username"
                         required
-                        placeholder="Employee Name"
+                        placeholder="Room Number"
                         onChange={(e) => {
                           setRoomID(e.target.value);
                         }}
@@ -151,7 +147,7 @@ export default function AddRooms() {
                         type="text"
                         className="form-control logininput"
                         id="nic"
-                        placeholder="nic"
+                        placeholder="Room Type"
                         required
                         onChange={(e) => {
                           setRoomType(e.target.value);
@@ -168,7 +164,7 @@ export default function AddRooms() {
                         className="form-control logininput"
                         id="nic"
                         required
-                        placeholder="nic"
+                        placeholder="Price Per Night"
                         onChange={(e) => {
                           setPrice(e.target.value);
                         }}

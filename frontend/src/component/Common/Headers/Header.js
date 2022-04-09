@@ -55,7 +55,7 @@ const Header = (props) => {
       >
         <div class="container-fluid">
           <a class="navbar-brand" href="#">
-            <img src={logo} alt="" width="30" height="24" />
+            <img src={logo} alt="" width="40" height="40" />
           </a>
           <button
             class="navbar-toggler"
@@ -138,12 +138,6 @@ const Header = (props) => {
                       role="status"
                     ></div>
                   )}
-
-                  <li class="nav-item">
-                    <Link to="/testing" class="nav-link">
-                      Profile
-                    </Link>
-                  </li>
                 </ul>
                 <div className="scrollStop">
                   <div class="dropdown">
@@ -167,7 +161,7 @@ const Header = (props) => {
                       aria-labelledby="dropdownMenuButton1"
                     >
                       <li>
-                        <a class="dropdown-item" href="userprofile">
+                        <a class="dropdown-item" href="/userprofile">
                           Profile
                         </a>
                       </li>
