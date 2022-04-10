@@ -113,6 +113,9 @@ export default function AddRooms() {
                     </label>
                     <br />
                     <input
+                      {...register("roomImg", {
+                        required: true,
+                      })}
                       type="file"
                       className="form-control logininput"
                       id="poster"
@@ -120,13 +123,21 @@ export default function AddRooms() {
                       required
                       onChange={postDetails}
                     />
+                    {errors?.roomImg?.type === "required" && (
+                      <p style={{ color: "red" }}>*Image is Required</p>
+                    )}
                   </div>
                 </center>
+
                 <br />
                 <div className="add-room-form">
                   <div className="row g-2">
                     <div className="col-md-6 form-floating">
                       <input
+                        {...register("roomNumber", {
+                          pattern: /^\d{3}$/,
+                          required: true,
+                        })}
                         type="text"
                         className="form-control logininput"
                         id="username"
@@ -136,14 +147,24 @@ export default function AddRooms() {
                           setRoomID(e.target.value);
                         }}
                       />
-
                       <label for="floatingInput">Room Number</label>
+                      {errors?.roomNumber?.type === "required" && (
+                        <p style={{ color: "red" }}>*Room Number is Required</p>
+                      )}
+                      {errors?.roomNumber?.type === "pattern" && (
+                        <p style={{ color: "red" }}>
+                          *Room number should be 3 digit number
+                        </p>
+                      )}
                     </div>
                   </div>
                   <br />
                   <div className="row g-2">
                     <div className="col-md-6 form-floating">
                       <input
+                        {...register("roomType", {
+                          required: true,
+                        })}
                         type="text"
                         className="form-control logininput"
                         id="nic"
@@ -154,12 +175,18 @@ export default function AddRooms() {
                         }}
                       />
                       <label for="floatingInput">Room Type</label>
+                      {errors?.roomType?.type === "required" && (
+                        <p style={{ color: "red" }}>*Room Type is Required</p>
+                      )}
                     </div>
                   </div>
                   <br />
                   <div className="row g-2">
                     <div className="col-md-6 form-floating">
                       <input
+                        {...register("price", {
+                          required: true,
+                        })}
                         type="text"
                         className="form-control logininput"
                         id="nic"
@@ -170,12 +197,18 @@ export default function AddRooms() {
                         }}
                       />
                       <label for="floatingInput">Price Per Night</label>
+                      {errors?.price?.type === "required" && (
+                        <p style={{ color: "red" }}>*Price is Required</p>
+                      )}
                     </div>
                   </div>
                   <br />
                   <br />
                   <div className="col-md-6">
                     <textarea
+                      {...register("description", {
+                        required: true,
+                      })}
                       rows="3"
                       className="form-control logininput"
                       id="address"
@@ -185,6 +218,9 @@ export default function AddRooms() {
                         setdescription(e.target.value);
                       }}
                     />
+                    {errors?.description?.type === "required" && (
+                      <p style={{ color: "red" }}>*Description is Required</p>
+                    )}
                   </div>
                   <br />
                   <button
