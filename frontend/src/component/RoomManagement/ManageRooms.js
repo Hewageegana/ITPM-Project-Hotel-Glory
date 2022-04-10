@@ -85,7 +85,7 @@ export default function Rooms() {
           </button>
         </Link>
         &nbsp;
-        <Link to="#">
+        <Link to="/roomreport">
           <button type="button" class="btn btn-primary btn-sm">
             GENERATE REPORT
           </button>
