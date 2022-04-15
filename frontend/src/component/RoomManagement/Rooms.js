@@ -50,7 +50,7 @@ export default function Rooms() {
               <img src={img2} className="img-slider" alt="Looking for job?" />
             </div>
           </div>
-          <button
+          {/* <button
             class="carousel-control-prev"
             type="button"
             data-bs-target="#carouselExampleControls"
@@ -68,7 +68,7 @@ export default function Rooms() {
           >
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Next</span>
-          </button>
+          </button> */}
         </div>
       </div>
 
@@ -136,7 +136,10 @@ export default function Rooms() {
                           </div>
                         </div>
                         <div className="btn-book">
-                          <a href={"/addbooking/" +rooms._id}className="btn btn-primary">
+                          <a
+                            href={"/addbooking/" + rooms._id}
+                            className="btn btn-primary"
+                          >
                             Book Now
                           </a>
                         </div>
