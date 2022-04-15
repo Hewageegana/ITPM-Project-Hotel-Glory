@@ -7,29 +7,46 @@ import {useForm} from "react-hook-form";
 
 export default function MyBooking(){
 
+    const [bookingview, setBooking] = useState([]);
+
+    useEffect(() => {
+      const getbooking = async () => {
+        const res = await axios.get("/booking/bookingview").then((res) => {
+          setBooking(res.data);
+        });
+      };
+      getbooking();
+    }, []);
+
     return (
         <>
         <div className="Container">
-            <div className="mybookingview">
-        <div class="card mb-3" style={{maxwidth: 540+'px'}}>
-  <div class="row g-0">
-    <div class="col-md-2" id="checkingdate">
-        CHECK IN DATE <br/>
-       2022/03/27 <  br/><br/> 
-    </div>
-    <div class="col-md-6">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-      </div>
-    </div>
+            {bookingview.map(function(f){
+                return(
+                    <div className="mybookingview">
+                    <div class="card mb-3" style={{maxwidth: 540+'px'}}>
+              <div class="row g-0">
+                <div class="col-md-2" id="checkingdate">
+                    CHECK IN DATE <br/>
+                   {f.CheckInDate} <  br/><br/> 
+                </div>
+                <div class="col-md-6">
+                  <div class="card-body">
+                    <h5 class="card-title">{f.FullName}</h5>
+                    <p class="card-text">{f.Email}</p>
+                    <p class="card-text">{f.ContactNumber}</p>
+                    
+                  </div>
+                </div>
+            
+                <div class="col-md-2"><button type="button" class="btn btn-success" id="bookingmybookingbtn">Success</button></div>
+            
+                </div>
+              </div>
+            </div>
+                )
+            })}
 
-    <div class="col-md-2"><button type="button" class="btn btn-success" id="bookingmybookingbtn">Success</button></div>
-
-    </div>
-  </div>
-</div>
             </div>
         </>
     )

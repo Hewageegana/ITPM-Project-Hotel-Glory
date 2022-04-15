@@ -136,7 +136,7 @@ export default function Rooms() {
                           </div>
                         </div>
                         <div className="btn-book">
-                          <a href="#" className="btn btn-primary">
+                          <a href={"/addbooking/" +rooms._id}className="btn btn-primary">
                             Book Now
                           </a>
                         </div>

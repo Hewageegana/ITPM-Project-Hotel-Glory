@@ -19,6 +19,7 @@ import StaffProfile from "./component/StaffManagement/StaffProfile";
 import ManageRooms from "./component/RoomManagement/ManageRooms";
 import UpdateRoom from "./component/RoomManagement/UpdateRoom";
 import HomePage from "./component/Common/Home Page/Homepage";
+import MyBooking from './component/BookingManagement/MyBooking';
 
 function App() {
   return (
@@ -30,7 +31,7 @@ function App() {
         <Route path="/public/login" exact component={Login}/>
         <Route path="/register" exact component={AddCustomer}/>
         <Route path="/userprofile" exact component={ViewProfile}/>
-        <Route path="/addbooking" exact component={AddBooking} />
+        <Route path="/addbooking/:id" exact component={AddBooking} />
         <Route path="/rooms" exact component={Rooms} />
         <Route path="/addrooms" exact component={AddRooms} />
         <Route path="/user/viewallstaff" exact component={ViewAllEmployee} />
@@ -39,6 +40,7 @@ function App() {
         <Route path="/managerooms" exact component={ManageRooms} />
         <Route path="/updateroom/:id" exact component={UpdateRoom} />
         <Route path="/" exact component={HomePage} />
+        <Route path="/mybooking" exact component={MyBooking}/>
       </div>
     </Router>
   );

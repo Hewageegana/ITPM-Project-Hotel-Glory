@@ -1,6 +1,10 @@
 const mongoose = require("mongoose");
 
 const BookingSchema = new mongoose.Schema({
+  userId:{
+    type:String,
+    required: true
+  },
   FullName: {
     type: String,
     required: true,
@@ -22,12 +26,10 @@ const BookingSchema = new mongoose.Schema({
     required: true,
   },
   CheckInDate: {
-    type: Date,
-    required: true,
+    type: String,
   },
   CheckOutDate: {
-    type: Date,
-    required: true,
+    type: String,
   },
   Rooms: {
     type: String,
@@ -36,7 +38,6 @@ const BookingSchema = new mongoose.Schema({
 
   RoomType: {
     type: String,
-    required: true,
   },
 
 
