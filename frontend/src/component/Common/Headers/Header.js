@@ -103,7 +103,7 @@ const Header = (props) => {
                         </Link>
                       </li>
                       <li class="nav-item">
-                        <Link to="/testing" class="nav-link">
+                        <Link to="/" class="nav-link">
                           My Bookings
                         </Link>
                       </li>
@@ -116,7 +116,7 @@ const Header = (props) => {
                         </Link>
                       </li>
                       <li class="nav-item">
-                        <Link to="/testing" class="nav-link">
+                        <Link to="/mybooking" class="nav-link">
                           Bookings
                         </Link>
                       </li>

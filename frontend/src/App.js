@@ -18,9 +18,7 @@ import ManageRooms from "./component/RoomManagement/ManageRooms";
 import UpdateRoom from "./component/RoomManagement/UpdateRoom";
 import HomePage from "./component/Common/Home Page/Homepage";
 
-import MyBooking from './component/BookingManagement/MyBooking';
-
-import RoomReport from "./component/RoomManagement/RoomReport";
+import MyBooking from "./component/BookingManagement/MyBooking";
 
 function App() {
   return (
@@ -29,10 +27,10 @@ function App() {
         <Route path="/" component={Header} />
         <Route path="/testing" exact component={Testing} />
 
-        <Route path="/user/addstaff" exact component={AddEmployees}/>
-        <Route path="/public/login" exact component={Login}/>
-        <Route path="/register" exact component={AddCustomer}/>
-        <Route path="/userprofile" exact component={ViewProfile}/>
+        <Route path="/user/addstaff" exact component={AddEmployees} />
+        <Route path="/public/login" exact component={Login} />
+        <Route path="/register" exact component={AddCustomer} />
+        <Route path="/userprofile" exact component={ViewProfile} />
         <Route path="/addbooking/:id" exact component={AddBooking} />
         <Route path="/rooms" exact component={Rooms} />
         <Route path="/addrooms" exact component={AddRooms} />
@@ -43,10 +41,7 @@ function App() {
         <Route path="/updateroom/:id" exact component={UpdateRoom} />
         <Route path="/" exact component={HomePage} />
 
-        <Route path="/mybooking" exact component={MyBooking}/>
-
-        <Route path="/roomreport" exact component={RoomReport} />
- 
+        <Route path="/mybooking" exact component={MyBooking} />
       </div>
     </Router>
   );
