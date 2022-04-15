@@ -36,3 +36,19 @@
 .bookingtopic{
     margin-left: 40px;
 }
+
+.mybookingview{
+    width: 800px;
+    margin-left: 400px;
+}
+
+#bookingmybookingbtn{
+     margin-top: 60px;
+     margin-left: 25px;
+}
+
+#checkingdate{
+    margin-top: 60px;
+     margin-left: 10px;
+
+}

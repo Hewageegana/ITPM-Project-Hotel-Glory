@@ -1,6 +1,8 @@
 const router = require("express").Router();
 const booking = require("../models/Booking");
 const { findById } = require("../models/Booking");
+const passport = require('passport');
+const passportConfig = require('../passport');
 
 router.get("/test",async (req, res) => {
     console.log("adasd", await res.json())
@@ -83,6 +85,21 @@ router.put("/update/:id", async (req, res) => {
     console.log("error", err);
     res.status(204).send({ message: "failed", data: err });
   }
+});
+
+
+router.get('/booking/userView',passport.authenticate('jwt',{session : false}),(req,res)=>{
+
+  // let userID = req.params.id;
+  // const {name,nicno,address,contactno,companyname,raw,description,email,username,password,role} = req.body;
+
+       booking.findById({_id : req.user._id})
+       .then((booking)=>{
+        res.json(booking)
+    }).catch((err)=>{
+        console.log(err);
+   })
+   .catch(err => res.status(404).json(err));  
 });
 
 module.exports = router;
