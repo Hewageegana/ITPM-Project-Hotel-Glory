@@ -1,13 +1,11 @@
-import './App.css';
-import React from 'react';
-import {BrowserRouter as Router, Route} from "react-router-dom";
-import Testing from './component/Testing';
-import AddEmployees from './component/StaffManagement/AddEmployees';
-import Login from './component/Common/Login';
-import AddCustomer from './component/CustomerManagement/AddCustomer';
-import ViewProfile from './component/CustomerManagement/ViewProfile';
-
-
+import "./App.css";
+import React from "react";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import Testing from "./component/Testing";
+import AddEmployees from "./component/StaffManagement/AddEmployees";
+import Login from "./component/Common/Login";
+import AddCustomer from "./component/CustomerManagement/AddCustomer";
+import ViewProfile from "./component/CustomerManagement/ViewProfile";
 
 import AddBooking from "./component/BookingManagement/AddBooking";
 import ViewAllEmployee from "./component/StaffManagement/ViewAllEmployee";
@@ -19,7 +17,10 @@ import StaffProfile from "./component/StaffManagement/StaffProfile";
 import ManageRooms from "./component/RoomManagement/ManageRooms";
 import UpdateRoom from "./component/RoomManagement/UpdateRoom";
 import HomePage from "./component/Common/Home Page/Homepage";
+
 import MyBooking from './component/BookingManagement/MyBooking';
+
+import RoomReport from "./component/RoomManagement/RoomReport";
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
       <div>
         <Route path="/" component={Header} />
         <Route path="/testing" exact component={Testing} />
+
         <Route path="/user/addstaff" exact component={AddEmployees}/>
         <Route path="/public/login" exact component={Login}/>
         <Route path="/register" exact component={AddCustomer}/>
@@ -40,7 +42,11 @@ function App() {
         <Route path="/managerooms" exact component={ManageRooms} />
         <Route path="/updateroom/:id" exact component={UpdateRoom} />
         <Route path="/" exact component={HomePage} />
+
         <Route path="/mybooking" exact component={MyBooking}/>
+
+        <Route path="/roomreport" exact component={RoomReport} />
+ 
       </div>
     </Router>
   );
