@@ -209,7 +209,7 @@ export default function AddRooms() {
                       {...register("description", {
                         required: true,
                       })}
-                      rows="3"
+                      rows="7"
                       className="form-control logininput"
                       id="address"
                       required
