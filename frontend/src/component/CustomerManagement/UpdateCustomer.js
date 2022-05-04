@@ -1,16 +1,16 @@
-import React,{useEffect,useState} from 'react'
+import React, { useEffect, useState } from 'react'
 import axios from "axios";
-import { useHistory , useParams } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 import swal from "sweetalert";
 import { useForm } from "react-hook-form";
 
-
-export default function AddCustomer() {
+function UpdateCustomer() {
 
     const { register, handleSubmit, formState: { errors }} = useForm();
     let history = useHistory();
     // let path = '/public/login';
-    let path2 = '/testing';
+    let path2 = '/userprofile';
+    const {id} = useParams();
 
     const [name,setname] = useState("");
     const [email, setEmail] = useState("");
@@ -19,8 +19,8 @@ export default function AddCustomer() {
     const [nic, setnic] = useState("");
     const [dob, setdob] = useState("");
     const [image, setimage] = useState("");
-    const [username, setusername] = useState("");
-    const [password, setpassword] = useState("");
+
+    const [user, setUser] = useState([]);
 
 
     const postDetails = async e=>{
@@ -45,29 +45,42 @@ export default function AddCustomer() {
         })
       }
 
-    //   useEffect(()=>{
-    //       const fetchUser = async ()=>{
+      useEffect(() => {
+        axios.get('/user/userprofile').then((res) => {
+            setUser(res.data)
+            setEmail(res.data.email)
+            setname(res.data.name)
+            setcontactNo(res.data.contactNo)
+            setgendero(res.data.gender)
+            setcontactNo(res.data.contactNo)
+            setnic(res.data.nic)
+            setdob(res.data.dob)
+            setimage(res.data.image)
+        }).catch((e) => {
+            // window.location.href = "/public/login"
+            swal({
+                title: "unauthorized",
+                text: "Please Login First " +e,
+                icon: "warning"
+            });
+        })
+    }, [])
 
-    //       }
-    //   })
+      function sendData(e){
 
-    function sendData(e){
-
-        const newCustomer ={
+        const updateCustomer ={
             name,
             email,
             contactNo,
             gender,
             nic,
             dob,
-            image,
-            username,
-            password,  
+            image 
         }
-        axios.post('/user/register', newCustomer).then(()=>{
+        axios.put(`/user/userupdate/${id}`, updateCustomer).then(()=>{
             swal({
                 title: "Success!",
-                text: "Your Successfully registered",
+                text: "Your Successfully Updated",
                 icon: "success",
                 button: "Ok",
             });history.push(path2);
@@ -82,7 +95,7 @@ export default function AddCustomer() {
         <div className="container customcon">
           
         <br/>
-        <center><h1 style={{letterSpacing:"5px", fontSize:"30px" , fontWeight:"600"}}>CUSTOMER REGISTRATION</h1></center>
+        <center><h1 style={{letterSpacing:"5px", fontSize:"30px" , fontWeight:"600"}}>CUSTOMER UPDATE</h1></center>
     <div className="register">
     <div className="registerin" style={{margin:"40px"}}>
      
@@ -93,7 +106,7 @@ export default function AddCustomer() {
                 <div className="card poster">
                 
                   {image === ""?<center><h4 style={{marginTop:"50px"}}>Preview</h4></center>:<center>
-                      <img src={image} className="posterimg" style={{width: "150px"}}/></center>}  
+                      <img src={image} className="posterimg"/></center>}  
                          
                </div> 
                </label> 
@@ -105,16 +118,15 @@ export default function AddCustomer() {
               <br/>
           <div className="row g-2">
           <div className="col-md-6 form-floating">
-                        <input type="text" className="form-control logininput" {...register("name",{ required:true})}  id="username" placeholder="Customer Name"
+                        <input type="text" defaultValue={name} className="form-control logininput" id="username" placeholder="Customer Name"
                           onChange={(e) => {
                             setname(e.target.value);
                           } } required/>
                           <label for="floatingInput">Customer Name</label>
-                          {errors?.name?.type === "required"  && (<p style={{ color:"red"}}>*Required</p>)}
                       </div>
     
               <div className="col-md-6 form-floating">
-              <input type="text" className="form-control logininput" id="contact" placeholder="Contact Number"
+              <input type="text" defaultValue={contactNo} className="form-control logininput" id="contact" placeholder="Contact Number"
                   onChange={(e) => {
                       setcontactNo(e.target.value);
                   }} required/>
@@ -125,17 +137,16 @@ export default function AddCustomer() {
     
             <div className="row g-2">
               <div className="col-md-6 form-floating">
-              <input type="text" className="form-control logininput" {...register("nic",{pattern:/^([0-9]{9}[x|X|v|V]|[0-9]{12})$/, required:true})} id="nic" placeholder="nic"
+              <input type="text" defaultValue={nic} className="form-control logininput" id="nic" placeholder="nic"
                           onChange={(e) => {
                             setnic(e.target.value);
                           } } required/>
                           <label for="floatingInput">Nic Number</label>
-                          {errors?.nic?.type === "required"  && (<p style={{ color:"red"}}>*Required</p>)}
-                          {errors?.nic?.type === "pattern"  && (<p style={{ color:"red"}}>*Invalid Nic Number</p>)}
+                  
               </div>
     
               <div className="col-md-6 form-floating">
-                        <input type="date" className="form-control logininput" id="dob" placeholder="Date of Birth"
+                        <input type="date" defaultValue={dob} className="form-control logininput" id="dob" placeholder="Date of Birth"
                           onChange={(e) => {
                             setdob(e.target.value);
                           } } required/>
@@ -146,13 +157,12 @@ export default function AddCustomer() {
     
     <div className="row g-2">
       <div className="col-md-6 form-floating">
-      <input type="text" className="form-control logininput" {...register("email",{ pattern:/^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/, required:true})} id="email" placeholder="Email"
+      <input type="text" defaultValue={email} className="form-control logininput" {...register("email",{ pattern:/^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/})} id="email" placeholder="Email"
                   onChange={(e) => {
                     setEmail(e.target.value);
                   } } required/>
                   <label for="floatingInput">Email</label>
-                  {errors?.email?.type === "pattern" && (<p style={{ color:"red"}}>*email format is Incorrect</p> )}
-                  {errors?.email?.type === "required"  && (<p style={{ color:"red"}}>*Required</p>)}
+                  {errors.email && (<p style={{ color:"red"}}>*email format is Incorrect</p> )}
       </div>
     
               <div className="col-md-6 ">
@@ -160,36 +170,17 @@ export default function AddCustomer() {
                   onChange={(e) => {
                     setgendero(e.target.value);
                   } } required>      
-                  <option defaultValue>Select Gender...</option>
-                  <option>Male</option>
-                  <option>Female</option></select>
+                  <option defaultValue>{gender}</option>
+                  {user.gender === "Male"?<option>Female</option>: <option>Male</option> }
+                  </select>
                       </div>
-                      <br/>
-
-            <div className="row g-2">
-             <div className="col-md-6 form-floating">
-                <input type="text" className="form-control logininput" id="username" placeholder="Customer username"
-                          onChange={(e) => {
-                            setusername(e.target.value);
-                          } } required/>
-                          <label for="floatingInput">Customer Username</label>
-                      </div>
-
-
-             <div className="col-md-6 form-floating">
-                <input type="password" className="form-control logininput" id="password" placeholder="Password"
-                          onChange={(e) => {
-                            setpassword(e.target.value);
-                          } } required/>
-                          <label for="floatingInput">Password</label>
-                      </div>  
-                      </div>        
+                      <br/>       
     
               </div>
               <br/>
             
           
-          <button type="submit" className="btnregister" onClick={handleSubmit(sendData)} id="regsubmit">Register</button>&nbsp;&nbsp;
+          <button type="submit" className="btnregister" onClick={handleSubmit(sendData)} id="regsubmit">Update</button>&nbsp;&nbsp;
           <button type="reset" className="btnreset" id="regreset">Reset</button>
     
           </form>     
@@ -199,6 +190,7 @@ export default function AddCustomer() {
         </div>
         <br/>
         </>
-      )
-    }
-    
+    )
+}
+
+export default UpdateCustomer
