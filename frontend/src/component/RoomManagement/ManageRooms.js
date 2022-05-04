@@ -4,6 +4,7 @@ import "./rooms.css";
 import swal from "sweetalert";
 import jspdf from "jspdf";
 import "jspdf-autotable";
+import img from "../../Assets/Images/HotalLOGOLarge.png";
 
 import { Link, useHistory } from "react-router-dom";
 // import { Input } from "antd";
@@ -55,6 +56,28 @@ export default function Rooms() {
     });
   };
 
+  //generate PDF Report
+  const generatePDF = (tickets) => {
+    const doc = new jspdf();
+    const tableColumn = ["Room Number", "Room Type", "Price"];
+    const tableRows = [];
+
+    tickets.map((ticket) => {
+      const ticketData = [ticket.RoomId, ticket.RoomType, ticket.Price];
+      tableRows.push(ticketData);
+    });
+    doc.text("All Rooms Report", 14, 15).setFontSize(12);
+    const date = Date().split(" ");
+    const dateStr = date[1] + "-" + date[2] + "-" + date[3];
+    // right down width height
+    doc.addImage(img, "JPEG", 170, 8, 25, 25);
+    doc.autoTable(tableColumn, tableRows, {
+      styles: { fontSize: 8 },
+      startY: 35,
+    });
+    doc.text(`Report Genarated Date - ${dateStr}`, 14, 23);
+    doc.save(`Room_report_.pdf`);
+  };
   return (
     <>
       {/* Search Bar */}
@@ -85,11 +108,13 @@ export default function Rooms() {
           </button>
         </Link>
         &nbsp;
-        <Link to="#">
-          <button type="button" class="btn btn-primary btn-sm">
-            GENERATE REPORT
-          </button>
-        </Link>
+        <button
+          type="button"
+          onClick={() => generatePDF(roomList)}
+          class="btn btn-primary btn-sm"
+        >
+          GENERATE REPORT
+        </button>
       </div>
 
       {/* Card view */}
