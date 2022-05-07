@@ -4,9 +4,35 @@ import { Link, useHistory } from "react-router-dom";
 import "./booking.css";
 import swal from "sweetalert";
 import { useForm } from "react-hook-form";
+import DeleteForeverIcon from "@material-ui/icons/DeleteForever";
 
 export default function MyBooking() {
   const [bookingview, setBooking] = useState([]);
+
+  const [searchTerm, setsearchTerm] = useState("");
+
+  const deletebooking = (id) => {
+    swal({
+      title: "Are you sure?",
+      text: "Booking Will be permenatly remove from System",
+      icon: "warning",
+      buttons: true,
+      dangerMode: true,
+    }).then((willDelete) => {
+      if (willDelete) {
+        axios.delete(`/booking/delete/${id}`).then(() => {
+          if (willDelete) {
+            swal("The Booking has been deleted!", { icon: "success" });
+            setTimeout(function () {
+              window.location.reload();
+            }, 1000);
+          } else {
+            swal("Booking Is Not Deleted");
+          }
+        });
+      }
+    });
+  };
 
   useEffect(() => {
     const getbooking = async () => {
@@ -18,9 +44,40 @@ export default function MyBooking() {
   }, []);
 
   return (
+
+
+     
     <>
+
       <div className="Container">
-        {bookingview.map(function (f) {
+        
+      <input 
+        
+              className="searchsfocus1"
+              type="text"
+              placeholder="Search"
+              aria-label="Search"
+              onChange={(e) => {
+                setsearchTerm(e.target.value);
+              }}
+           />
+
+
+        {bookingview.filter((val) => {
+                if (searchTerm === "") {
+                  return val;
+                } else if (
+                  val.FullName.toLowerCase().includes(searchTerm.toLowerCase()) 
+                
+                ) {
+                  return val;
+                }
+              })
+
+              
+
+
+        .map(function (f) {
           return (
             <div className="mybookingview">
               <div class="card mb-3" style={{ maxwidth: 540 + "px" }}>
@@ -37,6 +94,7 @@ export default function MyBooking() {
                       <p class="card-text">Contact: {f.ContactNumber}</p>
                     </div>
                   </div>
+                
 
                   <div class="col-md-2">
                     <button
@@ -50,8 +108,15 @@ export default function MyBooking() {
                       type="button"
                       class="btn btn-danger"
                       id="bookingmybookincancelgbtn"
+                   
                     >
-                      Cancel
+                        Cancel
+                       <button
+                       type="button"
+                       class="btn btn-danger"
+                       id="bookingmybookincancelgbtn"
+                            onClick={() => deletebooking(f._id)}
+                          ></button>
                     </button>
                   </div>
                 </div>

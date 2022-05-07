@@ -21,22 +21,31 @@
 }
 
 .bookingtopic {
-  margin-left: 40px;
+  margin-left: 60px;
 }
+
+.searchsfocus1 {
+  margin-left: 1310px;
+   font-size: large;
+   margin-top:15px ;
+ 
+}
+
 
 .mybookingview {
   width: 800px;
   margin-left: 400px;
+  margin-top: 25px;
 }
 
 #bookingmybookingbtn {
-  margin-top: 40px;
-  margin-left: 25px;
+  margin-top: 35px;
+  margin-left: 20px;
 }
 
 #bookingmybookincancelgbtn {
   margin-top: 5px;
-  margin-left: 25px;
+  margin-left: 17px;
 }
 
 .checkingdate {
@@ -46,3 +55,4 @@
   font-weight: 600;
   font-size: large;
 }
+
