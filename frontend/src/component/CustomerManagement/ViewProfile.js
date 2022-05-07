@@ -57,7 +57,11 @@ function ViewProfile(props) {
             <br />
             <div className="container customcon2">
                 <br />
+
+                <center><h1 style={{letterSpacing:"5px", fontSize:"30px" , fontWeight:"600"}}>YOUR PROFILE</h1></center>
+                
                 <div className='card maincard'>
+                    
                         <div className="row g-3">
                             <div className="column staffpage-imagecol">
                                 <div className="staffimage card">
@@ -77,7 +81,7 @@ function ViewProfile(props) {
                                 <div className="filmicon">
                                     <Link to={"/testing"}>
                                         </Link>
-                                    <Link to={"/user/userupdate/" + user._id}>
+                                    <Link to={"/update/customer/" + user._id}>
                                         <IconButton title="Edit Customer" aria-label="delete">
                                             <EditIcon fontSize="medium" color="primary" />
                                         </IconButton></Link>
