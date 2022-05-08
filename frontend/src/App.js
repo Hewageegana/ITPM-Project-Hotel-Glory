@@ -19,6 +19,11 @@ import UpdateRoom from "./component/RoomManagement/UpdateRoom";
 import HomePage from "./component/Common/Home Page/Homepage";
 
 import MyBooking from "./component/BookingManagement/MyBooking";
+import Attendance from "./component/StaffManagement/Attendance";
+import Mark from "./component/StaffManagement/Mark";
+import AttendanceHistory from "./component/StaffManagement/AttendanceHistory";
+import IndividualAttendanceHistory from "./component/StaffManagement/IndividualAttendanceHistory";
+import AbsentAttendance from "./component/StaffManagement/AbsentAttendance";
 
 function App() {
   return (
@@ -42,6 +47,13 @@ function App() {
         <Route path="/" exact component={HomePage} />
 
         <Route path="/mybooking" exact component={MyBooking} />
+
+        <Route path="/staff/attendance" exact component={Attendance} />
+        <Route path="/staff/mark/:id" exact component={Mark} />
+        <Route path="/staff/history" exact component={AttendanceHistory} />
+        <Route path="/staff/onehistory/:nic" exact component={IndividualAttendanceHistory}/>
+        <Route path="/staff/oneabsent/:nic" exact component={AbsentAttendance}/>
+
       </div>
     </Router>
   );

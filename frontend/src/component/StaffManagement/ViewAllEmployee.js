@@ -124,7 +124,7 @@ function ViewAllEmployee() {
           </button>
         </Link>
         &nbsp;&nbsp;
-        <Link to="/testing">
+        <Link to="/staff/attendance">
           <button
             type="submit"
             className="btn btn-outline-info allempreg"
@@ -232,7 +232,7 @@ function ViewAllEmployee() {
                       </div>
                       <div className="column filmpage-iconcol">
                         <div className="filmicon">
-                          <Link to={"/testing"}>
+                          <Link to={"/staff/onehistory/"+f.nic}>
                             <IconButton
                               title="View Attendance"
                               aria-label="delete"
