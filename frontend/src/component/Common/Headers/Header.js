@@ -102,16 +102,37 @@ const Header = (props) => {
                           Rooms
                         </Link>
                       </li>
-                      <li class="nav-item">
-                        <Link to="/pending" class="nav-link">
-                          Pending Bookings
-                        </Link>
-                      </li>
-                      <li class="nav-item">
-                        <Link to="/accepted" class="nav-link">
-                          My Bookings
-                        </Link>
-                      </li>
+
+                      <div className="scrollStop">
+                        <div class="dropdown">
+                          <span
+                            class="navbar-text profileHeader dropdown-toggle"
+                            type="button"
+                            id="dropdownMenuButton1"
+                            data-bs-toggle="dropdown"
+                            aria-expanded="false"
+                          >
+                            Booking
+                          </span>
+
+                          <ul
+                            class="dropdown-menu dropdown-menu-dark dropdown-menu-end"
+                            aria-labelledby="dropdownMenuButton1"
+                          >
+                            <li class="nav-item">
+                              <Link to="/pending" class="nav-link">
+                                Pending Bookings
+                              </Link>
+                            </li>
+
+                            <li class="nav-item">
+                              <Link to="/accepted" class="nav-link">
+                                My Bookings
+                              </Link>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
                     </>
                   ) : user.role === "staff" ? (
                     <>
@@ -121,25 +142,44 @@ const Header = (props) => {
                         </Link>
                       </li>
                       <li class="nav-item">
-                        <Link to="/mybooking" class="nav-link">
-                          Pending Bookings
-                        </Link>
-                      </li>
-                      <li class="nav-item">
-                        <Link to="/staffaccepted" class="nav-link">
-                          Accepted Booking
-                        </Link>
-                      </li>
-                      <li class="nav-item">
-                        <Link to="/staffdeclined" class="nav-link">
-                          Declined Booking
-                        </Link>
-                      </li>
-                      <li class="nav-item">
                         <Link to="/user/viewallstaff" class="nav-link">
                           Employees
                         </Link>
                       </li>
+                      <div className="scrollStop">
+                        <div class="dropdown">
+                          <span
+                            class="navbar-text profileHeader dropdown-toggle"
+                            type="button"
+                            id="dropdownMenuButton1"
+                            data-bs-toggle="dropdown"
+                            aria-expanded="false"
+                          >
+                            Booking
+                          </span>
+
+                          <ul
+                            class="dropdown-menu dropdown-menu-dark dropdown-menu-end"
+                            aria-labelledby="dropdownMenuButton1"
+                          >
+                            <li class="nav-item">
+                              <Link to="/mybooking" class="nav-link">
+                                Pending Bookings
+                              </Link>
+                            </li>
+                            <li class="nav-item">
+                              <Link to="/staffaccepted" class="nav-link">
+                                Accepted Booking
+                              </Link>
+                            </li>
+                            <li class="nav-item">
+                              <Link to="/staffdeclined" class="nav-link">
+                                Declined Booking
+                              </Link>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
                     </>
                   ) : user.role === "admin" ? (
                     <li class="nav-item">
