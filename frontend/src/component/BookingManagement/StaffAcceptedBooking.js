@@ -20,7 +20,7 @@ export default function StaffAcceptedBooking() {
             dangerMode: true,
         }).then((willDelete) => {
             if (willDelete) {
-                axios.delete(`/booking/delete/${id}`).then(() => {
+                axios.delete(`/booking/deleteaccepted/${id}`).then(() => {
                     if (willDelete) {
                         swal("The Booking has been deleted!", { icon: "success" });
                         setTimeout(function () {
