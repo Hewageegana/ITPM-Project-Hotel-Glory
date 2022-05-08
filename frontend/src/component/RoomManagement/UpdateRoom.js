@@ -200,7 +200,7 @@ export default function AddRooms() {
                   <br />
                   <div className="col-md-6">
                     <textarea
-                      rows="3"
+                      rows="7"
                       className="form-control logininput"
                       id="address"
                       required
