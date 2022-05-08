@@ -20,6 +20,15 @@ import HomePage from "./component/Common/Home Page/Homepage";
 import UpdateCustomer from './component/CustomerManagement/UpdateCustomer';
 
 import MyBooking from "./component/BookingManagement/MyBooking";
+import UpdateBooking from "./component/BookingManagement/UpdateBooking"
+import CustomerBooking from "./component/BookingManagement/CustomerBooking";
+import PendingBooking from "./component/BookingManagement/PendingBooking";
+import AcceptedBooking from "./component/BookingManagement/AcceptedBooking";
+import DeclineBooking from "./component/BookingManagement/DeclineBooking";
+import StaffAcceptedBooking from "./component/BookingManagement/StaffAcceptedBooking";
+import StaffDeclinedBooking from "./component/BookingManagement/StaffDeclinedBooking";
+
+
 
 function App() {
   return (
@@ -43,6 +52,13 @@ function App() {
         <Route path="/" exact component={HomePage} />
         <Route path="/update/customer/:id" exact component={UpdateCustomer}/>
         <Route path="/mybooking" exact component={MyBooking} />
+        <Route path="/updatebooking/:id" exact component={UpdateBooking}/>
+        <Route path="/customerbooking" exact component={CustomerBooking}/>
+        <Route path="/pending" exact component={PendingBooking}/>
+        <Route path="/accepted"exact component={AcceptedBooking}/>
+        <Route path="/decline"exact component={DeclineBooking}/>
+        <Route path="/staffaccepted"exact component={StaffAcceptedBooking}/>
+        <Route path="/staffdeclined" exact component={StaffDeclinedBooking}/>
       </div>
     </Router>
   );
