@@ -47,6 +47,12 @@ app.use("/rooms", roomRouter);
 const bookingRouter = require("./routes/booking.js");
 app.use("/booking", bookingRouter);
 
+const acceptBookingRouter = require("./routes/acceptedBooking");
+app.use("/booking",acceptBookingRouter);
+
+const declinedBookingRouter = require("./routes/declinedBooking");
+app.use("/booking",declinedBookingRouter);
+
 const attandenceRouter = require("./routes/attandence");
 app.use("/staff", attandenceRouter);
 

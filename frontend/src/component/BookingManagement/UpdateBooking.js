@@ -12,45 +12,10 @@ export default function AddBooking() {
     formState: { errors },
   } = useForm();
   let history = useHistory();
-  let path2 = "/testing";
+  let path2 = "/pending";
   const { id } = useParams();
 
   const [user, setUser] = useState([]);
-  const [room, setRoom] = useState([]);
-
-  useEffect(() => {
-    axios
-      .get(`/rooms/rooms/${id}`)
-      .then((res) => {
-        setRoom(res.data.staff);
-        setRoomType(res.data.RoomType);
-      })
-      .catch((e) => {
-        window.location.href = "/public/login";
-        swal({
-          title: "unauthorized",
-          text: "Please Login First " + e,
-          icon: "warning",
-        });
-      });
-  }, []);
-
-  useEffect(() => {
-    axios
-      .get("/user/userprofile")
-      .then((res) => {
-        setUser(res.data);
-      })
-      .catch((e) => {
-        // window.location.href = "/public/login"
-        swal({
-          title: "unauthorized",
-          text: "Please Login First " + e,
-          icon: "warning",
-        });
-      });
-  }, []);
-
   const [FullName, setFullName] = useState("");
   const [Email, setEmail] = useState("");
   const [ContactNumber, setContactNumber] = useState("");
@@ -67,10 +32,33 @@ export default function AddBooking() {
 
   useEffect(() => {
     axios
+      .get(`/booking/booking/${id}`)
+      .then((res) => {
+        setFullName(res.data.FullName)
+        setEmail(res.data.Email)
+        setContactNumber(res.data.ContactNumber)
+        setCountry(res.data.Country)
+        setLocation(res.data.Location)
+        setCheckInDate(res.data.CheckInDate)
+        setCheckOutDate(res.data.CheckOutDate)
+        setRooms(res.data.Rooms)
+        setRoomType(res.data.RoomType)
+        setNights(res.data.Nights)
+        setAdults(res.data.Adults)
+        setChildren(res.data.Children)
+        setUserId(res.data.setUserId)
+      })
+  }, []);
+
+
+
+
+  useEffect(() => {
+    axios
       .get("/user/userprofile")
       .then((res) => {
         setUser(res.data);
-        setUserId(res.data._id);
+        // setUserId(res.data._id);
       })
       .catch((e) => {
         window.location.href = "/public/login"
@@ -108,7 +96,6 @@ export default function AddBooking() {
 
   function sendData(e) {
     const newBooking = {
-      userId,
       FullName,
       Email,
       ContactNumber,
@@ -121,9 +108,10 @@ export default function AddBooking() {
       Nights,
       Adults,
       Children,
-     };
+      userId,
+    };
     axios
-      .post("/booking/add", newBooking)
+      .put(`/booking/update/${id}`, newBooking)
       .then(() => {
         swal({
           title: "Success!",
@@ -144,7 +132,7 @@ export default function AddBooking() {
         <center>
           <div className="add-booking-form">
             <div className="bookingtopic">
-              <h1>ADD NEW BOOKING</h1>
+              <h1>Update BOOKING</h1>
             </div>
             <br />
             <form method="get" className="addbookingform">
@@ -155,6 +143,8 @@ export default function AddBooking() {
                     class="form-control"
                     placeholder="Full name"
                     aria-label="First name"
+                    defaultValue={FullName}
+                    disabled
                     onChange={(e) => {
                       setFullName(e.target.value);
                     }}
@@ -167,6 +157,8 @@ export default function AddBooking() {
                     class="form-control"
                     placeholder="Contact Number"
                     aria-label="Contact Number"
+                    defaultValue={ContactNumber}
+                    disabled
                     onChange={(e) => {
                       setContactNumber(e.target.value);
                     }}
@@ -182,6 +174,8 @@ export default function AddBooking() {
                   id="exampleInputEmail1"
                   placeholder="Email"
                   aria-describedby="emailHelp"
+                  disabled
+                  defaultValue={Email}
                   onChange={(e) => {
                     setEmail(e.target.value);
                   }}
@@ -195,6 +189,8 @@ export default function AddBooking() {
                   id="exampleInputCountry"
                   placeholder="Country"
                   aria-describedby="CountryHelp"
+                  disabled
+                  defaultValue={Country}
                   onChange={(e) => {
                     setCountry(e.target.value);
                   }}
@@ -208,6 +204,8 @@ export default function AddBooking() {
                   id="exampleInputLocation"
                   placeholder="Location"
                   aria-describedby="LocationHelp"
+                  disabled
+                  defaultValue={Location}
                   onChange={(e) => {
                     setLocation(e.target.value);
                   }}
@@ -221,6 +219,8 @@ export default function AddBooking() {
                     type="date"
                     class="form-control"
                     placeholder="Check In Date"
+                    disabled
+                    defaultValue={CheckInDate}
                     onChange={(e) => {
                       setCheckInDate(e.target.value);
                     }}
@@ -233,6 +233,8 @@ export default function AddBooking() {
                     type="date"
                     class="form-control"
                     placeholder="Check Out Date"
+                    disabled
+                    defaultValue={CheckOutDate}
                     onChange={(e) => {
                       setCheckOutDate(e.target.value);
                     }}

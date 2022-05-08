@@ -1,0 +1,18 @@
+.markBtn{
+    flex-direction: column;
+    justify-content: center;
+}
+
+.attendancepage-imgcol{
+    float: left;
+    width:40%;
+  }
+  .attendancepage-detailcol{
+    float: left;
+    width:40%;
+  }
+  .attendancepage-btncol{
+    float: left;
+    width: 20%;
+    align-self: center;
+  }

@@ -12,7 +12,6 @@ const presentSchema = new Schema({
     },
     code: {
         type: String,
-        required: true
     },
     nic: {
         type: String,
@@ -26,7 +25,15 @@ const presentSchema = new Schema({
         type: String,
         require: true
     },
+    profileImg: {
+        type: String,
+        require: true
+    },
     currentDate: {
+        type: String,
+        require: true
+    },
+    status: {
         type: String,
         require: true
     }

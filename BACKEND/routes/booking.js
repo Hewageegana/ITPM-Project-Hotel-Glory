@@ -51,7 +51,7 @@ router.get("/bookingview", async (req, res) => {
   try {
     const bookingview = await booking.find(req.params);
     res.json(bookingview);
-    console.log("result , ", bookingeview);
+    // console.log("result , ", bookingeview);
   } catch (err) {
     console.log("error in retriew booking", err);
     res.status(204).send({ message: "failed", data: err });
@@ -77,7 +77,7 @@ router.delete("/delete/:id", async (req, res) => {
 router.put("/update/:id", async (req, res) => {
   try {
     const deletebooking = await booking.findByIdAndUpdate(req.params.id, req.body, {
-      new: true,
+      new: false,
     });
     res.json(deletebooking);
     console.log("result , ", deletebooking);
@@ -88,12 +88,12 @@ router.put("/update/:id", async (req, res) => {
 });
 
 
-router.get('/booking/userView',passport.authenticate('jwt',{session : false}),(req,res)=>{
+router.get('/bookinguserview',passport.authenticate('jwt',{session : false}),(req,res)=>{
 
   // let userID = req.params.id;
   // const {name,nicno,address,contactno,companyname,raw,description,email,username,password,role} = req.body;
 
-       booking.findById({_id : req.user._id})
+       booking.find({userId: req.user._id})
        .then((booking)=>{
         res.json(booking)
     }).catch((err)=>{
