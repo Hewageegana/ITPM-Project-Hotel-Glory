@@ -94,9 +94,9 @@ export default function StaffAcceptedBooking() {
                                 <div class="row g-0">
                                     <div class="col-md-3">
                                         <h6 className="checkingdate">CHECK IN DATE</h6> <br />
-                                        {f.CheckInDate} <br />
+                                        <div  className="cid2"> {f.CheckInDate} </div><br />
                                         <h6 className="checkingdate">CHECK OUT DATE</h6> <br />
-                                        {f.CheckOutDate} <br />
+                                        <div  className="cod2">     {f.CheckOutDate} </div> <br />
                                         <br />
                                     </div>
                                     <div class="col-md-6">

@@ -65,11 +65,13 @@
 }
 
 .checkingdate {
+  position: relative;
   margin-top: 20px;
   margin-left: 10px;
   font-style: inherit;
   font-weight: 600;
   font-size: large;
+ 
 }
 
 #bookingdetails{
@@ -81,3 +83,85 @@
   margin-top: 8px;
 }
 
+.datecss{
+  position: relative;
+  left: 10px;
+}
+
+.date1css{
+  position: relative;
+  left: 10px;
+}
+
+.roomt{
+  position: relative;
+  bottom: 20px;
+}
+
+.roomn{
+  position: relative;
+  bottom: 20px;
+}
+
+.rooma{
+  position: relative;
+  bottom: 20px;
+}
+
+.roomc{
+  position: relative;
+  bottom: 20px;
+}
+.cid{
+  position:relative;
+  left: 10px;
+}
+
+.cot{
+
+  position:relative;
+  left: 10px;
+
+}
+.roomro{
+  position: relative;
+  bottom: 2px;
+
+}
+.roomti{
+  position: relative;
+  bottom: 2px;
+
+}
+.roomro{
+  position: relative;
+  bottom: 2px;
+}
+.roomad{
+  position: relative;
+  bottom: 2px;
+
+}
+.roomch{
+  position: relative;
+  bottom: 2px;
+}
+
+.cid1{
+  position: relative;
+  left: 10px;
+}
+
+.cod1{
+  position: relative;
+  left: 10px;
+}
+.cid2{
+  position: relative;
+  left: 10px;
+
+}
+.cod2{
+  position: relative;
+  left: 10px;
+}

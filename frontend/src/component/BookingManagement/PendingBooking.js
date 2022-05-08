@@ -146,18 +146,18 @@ export default function PendingBooking() {
                                 <div class="row g-0">
                                     <div class="col-md-3">
                                         <h6 className="checkingdate">CHECK IN DATE</h6> <br />
-                                        {f.CheckInDate} <br />
+                                        <div className="cid">{f.CheckInDate}</div> <br />
                                         <h6 className="checkingdate">CHECK OUT DATE</h6> <br />
-                                        {f.CheckOutDate} <br />
+                                        <div  className="cot">{f.CheckOutDate} </div><br />
                                         <br />
                                     </div>
                                     <div class="col-md-6">
                                         <div class="card-body">
 
-                                            <h5 class="card-title">{f.RoomType}</h5>
-                                            <p class="card-text">Number of Rooms: {f.Rooms}</p>
-                                            <p class="card-text">Number of Adults: {f.Adults}</p>
-                                            <p class="card-text">Number of Children: {f.Children}</p>
+                                            <h5 class="card-title"className="roomti">{f.RoomType}</h5>
+                                            <p class="card-text"className="roomro">Number of Rooms: {f.Rooms}</p>
+                                            <p class="card-text"className="roomad">Number of Adults: {f.Adults}</p>
+                                            <p class="card-text"className="roomch">Number of Children: {f.Children}</p>
                                         </div>
                                     </div>
 
