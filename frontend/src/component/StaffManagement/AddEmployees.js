@@ -75,7 +75,7 @@ function AddEmployees() {
         axios.post('/staff/addstaff', newEmployee).then(()=>{
             swal({
                 title: "Success!",
-                text: "Your Successfully registered",
+                text: "Your Successfully Added Employee",
                 icon: "success",
                 button: "Ok",
             });history.push(path2);

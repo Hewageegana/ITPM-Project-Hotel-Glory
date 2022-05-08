@@ -103,7 +103,12 @@ const Header = (props) => {
                         </Link>
                       </li>
                       <li class="nav-item">
-                        <Link to="/" class="nav-link">
+                        <Link to="/pending" class="nav-link">
+                          Pending Bookings
+                        </Link>
+                      </li>
+                      <li class="nav-item">
+                        <Link to="/accepted" class="nav-link">
                           My Bookings
                         </Link>
                       </li>
@@ -117,7 +122,17 @@ const Header = (props) => {
                       </li>
                       <li class="nav-item">
                         <Link to="/mybooking" class="nav-link">
-                          Bookings
+                          Pending Bookings
+                        </Link>
+                      </li>
+                      <li class="nav-item">
+                        <Link to="/staffaccepted" class="nav-link">
+                          Accepted Booking
+                        </Link>
+                      </li>
+                      <li class="nav-item">
+                        <Link to="/staffdeclined" class="nav-link">
+                          Declined Booking
                         </Link>
                       </li>
                       <li class="nav-item">
@@ -128,8 +143,8 @@ const Header = (props) => {
                     </>
                   ) : user.role === "admin" ? (
                     <li class="nav-item">
-                      <Link to="/testing" class="nav-link">
-                        All Users
+                      <Link to="/allUser" class="nav-link">
+                        All Customer
                       </Link>
                     </li>
                   ) : (

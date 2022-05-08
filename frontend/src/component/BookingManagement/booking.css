@@ -21,28 +21,147 @@
 }
 
 .bookingtopic {
-  margin-left: 40px;
+  margin-left: 60px;
 }
+
+.searchsfocus1 {
+  margin-left: 1310px;
+   font-size: large;
+   margin-top:15px ;
+ 
+}
+
 
 .mybookingview {
   width: 800px;
   margin-left: 400px;
+  margin-top: 25px;
+}
+.mybookingview1{
+  width: 800px;
+  margin-left: 0px;
+  margin-top: 25px;
+}
+.mybokkingheading{
+  margin-top: 15px;
+  margin-left: 300px;
+}
+#update-booking{
+  margin-top: 60px;
+}
+#bookingmybookingbtn1{
+  margin-left: 1100px;
+  margin-top: 25px;
 }
 
 #bookingmybookingbtn {
-  margin-top: 40px;
+  margin-top: 35px;
   margin-left: 25px;
 }
 
 #bookingmybookincancelgbtn {
-  margin-top: 5px;
+  margin-top: 15px;
   margin-left: 25px;
 }
 
 .checkingdate {
+  position: relative;
   margin-top: 20px;
   margin-left: 10px;
   font-style: inherit;
   font-weight: 600;
   font-size: large;
+ 
+}
+
+#bookingdetails{
+  margin-top: 50px;
+  margin-left: 50px;
+}
+
+#bookingmybookincancelgbtn2{
+  margin-top: 8px;
+}
+
+.datecss{
+  position: relative;
+  left: 10px;
+}
+
+.date1css{
+  position: relative;
+  left: 10px;
+}
+
+.roomt{
+  position: relative;
+  bottom: 20px;
+}
+
+.roomn{
+  position: relative;
+  bottom: 20px;
+}
+
+.rooma{
+  position: relative;
+  bottom: 20px;
+}
+
+.roomc{
+  position: relative;
+  bottom: 20px;
+}
+.cid{
+  position:relative;
+  left: 10px;
+}
+
+.cot{
+
+  position:relative;
+  left: 10px;
+
+}
+.roomro{
+  position: relative;
+  bottom: 2px;
+
+}
+.roomti{
+  position: relative;
+  bottom: 2px;
+
+}
+.roomro{
+  position: relative;
+  bottom: 2px;
+}
+.roomad{
+  position: relative;
+  bottom: 2px;
+
+}
+.roomch{
+  position: relative;
+  bottom: 2px;
+}
+
+.cid1{
+  position: relative;
+  left: 10px;
+}
+
+.cod1{
+  position: relative;
+  left: 10px;
+}
+.cid2{
+  position: relative;
+  left: 10px;
+
+}
+.cod2{
+  position: relative;
+  left: 10px;
 }
