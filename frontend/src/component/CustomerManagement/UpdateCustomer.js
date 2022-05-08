@@ -57,10 +57,10 @@ function UpdateCustomer() {
             setdob(res.data.dob)
             setimage(res.data.image)
         }).catch((e) => {
-            // window.location.href = "/public/login"
+             window.location.href = "/public/login"
             swal({
                 title: "unauthorized",
-                text: "Please Login First " +e,
+                text: "Please Login First " ,
                 icon: "warning"
             });
         })
