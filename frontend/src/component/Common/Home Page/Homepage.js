@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "../Home Page/homepage.css";
-import img from "../../../Assets/Images/img.jpg";
-import img1 from "../../../Assets/Images/img7.jpg";
-import img2 from "../../../Assets/Images/img6.jpg";
+import img from "../../../Assets/Images/home3.jpg";
+import img1 from "../../../Assets/Images/home2.jpg";
+import img2 from "../../../Assets/Images/home1.jpg";
 
 export default function HomePage() {
   return (
@@ -46,10 +46,8 @@ export default function HomePage() {
                   alt="..."
                 />
                 <div class="carousel-caption d-none d-md-block">
-                  <h5>First slide label</h5>
-                  <p>
-                    Some representative placeholder content for the first slide.
-                  </p>
+                  <h3>WELCOME TO HOTEL GLORY</h3>
+                  <h5>LUXURY AT YOUR FINGERTIPS.</h5>
                 </div>
               </div>
               <div class="carousel-item">
@@ -60,11 +58,8 @@ export default function HomePage() {
                   alt="..."
                 />
                 <div class="carousel-caption d-none d-md-block">
-                  <h5>Second slide label</h5>
-                  <p>
-                    Some representative placeholder content for the second
-                    slide.
-                  </p>
+                  <h3>WELCOME TO HOTEL GLORY</h3>
+                  <h5>UNTOLD BEAUTY AND EXPERIENCES</h5>
                 </div>
               </div>
               <div class="carousel-item">
@@ -75,10 +70,8 @@ export default function HomePage() {
                   alt="..."
                 />
                 <div class="carousel-caption d-none d-md-block">
-                  <h5>Third slide label</h5>
-                  <p>
-                    Some representative placeholder content for the third slide.
-                  </p>
+                  <h3>WELCOME TO HOTEL GLORY</h3>
+                  <h5>PARTY EXPERTS WITH CREATIVE IDEAS.</h5>
                 </div>
               </div>
             </div>

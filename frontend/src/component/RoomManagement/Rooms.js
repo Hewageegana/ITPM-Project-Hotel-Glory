@@ -16,6 +16,14 @@ export default function Rooms() {
   let path = "/user/profile";
   const [searchTerm, setsearchTerm] = useState("");
 
+  const [user, setUser] = useState([]);
+
+  useEffect(() => {
+    axios.get("/user/userprofile").then((res) => {
+      setUser(res.data);
+    });
+  }, []);
+
   //retriew
 
   useEffect(() => {
@@ -135,13 +143,23 @@ export default function Rooms() {
                             <div />
                           </div>
                         </div>
+
                         <div className="btn-book">
-                          <a
-                            href={"/addbooking/" + rooms._id}
-                            className="btn btn-primary"
-                          >
-                            Book Now
-                          </a>
+                          {user.length === 0 ? (
+                            <a
+                              href={"/public/login"}
+                              className="btn btn-primary"
+                            >
+                              Book Now
+                            </a>
+                          ) : (
+                            <a
+                              href={"/addbooking/" + rooms._id}
+                              className="btn btn-primary"
+                            >
+                              Book Now
+                            </a>
+                          )}
                         </div>
                       </div>
                     </div>
