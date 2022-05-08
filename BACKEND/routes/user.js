@@ -13,6 +13,7 @@ const signToken = userID => {
   }, "damru", { expiresIn: "1h" });
 }
 
+
 //user register(add)
 userRouter.route('/register').post((req, res) => {
   const { name, email, contactNo, gender, nic, dob, image, username, password } = req.body;
@@ -40,13 +41,16 @@ userRouter.route('/register').post((req, res) => {
 
 
 //logout
+
 userRouter.get('/logout', passport.authenticate('jwt', { session: false }), (req, res) => {
   res.clearCookie('access_token');
   res.json({ user: { username: "", role: "" }, success: true });
 });
 
 
+
 //use passport locatstrategy for login
+
 userRouter.post('/login', passport.authenticate('local', { session: false }), (req, res) => {
   if (req.isAuthenticated()) {
     //get request user from passport compare password
@@ -68,7 +72,9 @@ userRouter.get('/userauthenticated', passport.authenticate('jwt', { session: fal
 });
 
 
-//update
+
+//customer details update
+
 userRouter.put('/userupdate/:id', passport.authenticate('jwt', { session: false }), (req, res) => {
   let userID = req.params.id;
   //const supplier = await Supplier.findById(req.user._id);
@@ -107,7 +113,8 @@ userRouter.delete('/delete/:id', passport.authenticate('jwt', { session: false }
 });
 
 
-//user Profile (view)
+//customer can view user Profile 
+
 userRouter.get('/userprofile', passport.authenticate('jwt', { session: false }), (req, res) => {
 
   // let userID = req.params.id;
@@ -131,9 +138,9 @@ userRouter.get('/userprofile', passport.authenticate('jwt', { session: false }),
 
 //admin can view customer list
 
-userRouter.get('/alluser', passport.authenticate('jwt', { session: false }), (req, res) => {
+userRouter.get('/alluser/:role', passport.authenticate('jwt', { session: false }), (req, res) => {
   if (req.user.role === 'admin') {
-    User.find().then((user) => {
+    User.find({role: req.params.role}).then((user) => {
       res.json(user)
     }).catch((err) => {
       console.log(err);

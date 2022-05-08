@@ -20,6 +20,7 @@ import HomePage from "./component/Common/Home Page/Homepage";
 import UpdateCustomer from './component/CustomerManagement/UpdateCustomer';
 
 import MyBooking from "./component/BookingManagement/MyBooking";
+import AdminPage from "./component/CustomerManagement/AdminPage";
 
 function App() {
   return (
@@ -43,6 +44,7 @@ function App() {
         <Route path="/" exact component={HomePage} />
         <Route path="/update/customer/:id" exact component={UpdateCustomer}/>
         <Route path="/mybooking" exact component={MyBooking} />
+        <Route path="/allUser" exact component={AdminPage}/>
       </div>
     </Router>
   );

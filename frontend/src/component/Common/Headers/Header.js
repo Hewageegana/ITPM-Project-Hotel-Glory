@@ -128,8 +128,8 @@ const Header = (props) => {
                     </>
                   ) : user.role === "admin" ? (
                     <li class="nav-item">
-                      <Link to="/testing" class="nav-link">
-                        All Users
+                      <Link to="/allUser" class="nav-link">
+                        All Customer
                       </Link>
                     </li>
                   ) : (
