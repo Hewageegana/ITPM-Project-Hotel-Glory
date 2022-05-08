@@ -29,6 +29,11 @@ import StaffAcceptedBooking from "./component/BookingManagement/StaffAcceptedBoo
 import StaffDeclinedBooking from "./component/BookingManagement/StaffDeclinedBooking";
 
 
+import Attendance from "./component/StaffManagement/Attendance";
+import Mark from "./component/StaffManagement/Mark";
+import AttendanceHistory from "./component/StaffManagement/AttendanceHistory";
+import IndividualAttendanceHistory from "./component/StaffManagement/IndividualAttendanceHistory";
+import AbsentAttendance from "./component/StaffManagement/AbsentAttendance";
 
 function App() {
   return (
@@ -59,6 +64,13 @@ function App() {
         <Route path="/decline"exact component={DeclineBooking}/>
         <Route path="/staffaccepted"exact component={StaffAcceptedBooking}/>
         <Route path="/staffdeclined" exact component={StaffDeclinedBooking}/>
+
+        <Route path="/staff/attendance" exact component={Attendance} />
+        <Route path="/staff/mark/:id" exact component={Mark} />
+        <Route path="/staff/history" exact component={AttendanceHistory} />
+        <Route path="/staff/onehistory/:nic" exact component={IndividualAttendanceHistory}/>
+        <Route path="/staff/oneabsent/:nic" exact component={AbsentAttendance}/>
+
       </div>
     </Router>
   );
