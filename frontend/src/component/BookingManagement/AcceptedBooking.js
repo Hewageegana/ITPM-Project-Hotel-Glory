@@ -76,22 +76,7 @@ export default function AcceptedBooking() {
 
       <div className="Container">
         
-      <input 
-        
-              className="searchsfocus1"
-              type="text"
-              placeholder="Search"
-              aria-label="Search"
-              onChange={(e) => {
-                setsearchTerm(e.target.value);
-              }}
-           />
-                    <button
-                      type="button"
-                      class="btn btn-primary"
-                      id="bookingmybookingbtn1">
-                      Generate Report
-                    </button>
+      
 
         {acceptedBooking.filter((val) => {
                 if (searchTerm === "") {
@@ -117,18 +102,18 @@ export default function AcceptedBooking() {
                 <div class="row g-2">
                   <div class="col-md-6">
                     <h6 className="checkingdate">CHECK IN DATE</h6> <br />
-                    {f.CheckInDate}<br/>
+                    <div className="datecss">{f.CheckInDate}</div><br/>
                     <h6 className="checkingdate">CHECK OUT DATE</h6> <br />
-                    {f.CheckOutDate}<br/>
+                    <div className="date1css">{f.CheckOutDate}</div><br/>
                     <br />
 
                   </div>
                   <div class="col-md-6">
                     <div class="card-body" id="bookingdetails">
-                      <h5 class="card-title">{f.RoomType}</h5>
-                      <p class="card-text">Number of Rooms: {f.Rooms}</p>
-                      <p class="card-text">Number of Adults: {f.Adults}</p>
-                      <p class="card-text">Number of Children: {f.Children}</p>
+                      <h5 class="card-title" className="roomt">{f.RoomType}</h5>
+                      <p class="card-text" className="roomn">Number of Rooms: {f.Rooms}</p>
+                      <p class="card-text" className="rooma">Number of Adults: {f.Adults}</p>
+                      <p class="card-text" className="roomc">Number of Children: {f.Children}</p>
                     </div>
                   </div>
                 
