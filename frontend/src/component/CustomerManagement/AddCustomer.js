@@ -9,8 +9,8 @@ export default function AddCustomer() {
 
     const { register, handleSubmit, formState: { errors }} = useForm();
     let history = useHistory();
-    // let path = '/public/login';
-    let path2 = '/testing';
+    let path2 = '/public/login';
+    //let path2 = '/testing';
 
     const [name,setname] = useState("");
     const [email, setEmail] = useState("");
