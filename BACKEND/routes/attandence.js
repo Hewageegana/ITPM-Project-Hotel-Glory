@@ -20,7 +20,7 @@ attandenceRouter.get('/attendance', passport.authenticate('jwt', { session: fals
 
 });
 
-attandenceRouter.get('/allAttendance', passport.authenticate('jwt', { session: false }), (req, res) => {
+attandenceRouter.get('/allattendance', passport.authenticate('jwt', { session: false }), (req, res) => {
     // let userID = req.params.id;
     // if(userId===req.user._id){
     Attandence.find().then((attendance) => {
@@ -30,6 +30,18 @@ attandenceRouter.get('/allAttendance', passport.authenticate('jwt', { session: f
         res.status(500).send({ status: "Error" });
     })
     // }
+});
+
+attandenceRouter.get('/getattendence/:id', passport.authenticate('jwt', { session: false }), (req, res) => {
+    let attandenceID = req.params.id;
+    Attandence.findById(attandenceID)
+        .then((attendance) => {
+            res.json(attendance);
+        })
+        .catch((err) => {
+            console.log(err);
+        })
+
 });
 
 attandenceRouter.delete('/deleteattendence/:id', passport.authenticate('jwt', { session: false }), (req, res) => {
@@ -45,7 +57,8 @@ attandenceRouter.delete('/deleteattendence/:id', passport.authenticate('jwt', { 
 });
 
 attandenceRouter.post('/addabsent', passport.authenticate('jwt', { session: false }), (req, res) => {
-    const { name, contactNo, code, nic, email, note, currentDate } = req.body;
+    const { name, contactNo, code, nic, email, note, profileImg, currentDate } = req.body;
+    let status = "Absent"
 
     const newabsent = new Absent({
         name,
@@ -54,7 +67,9 @@ attandenceRouter.post('/addabsent', passport.authenticate('jwt', { session: fals
         nic,
         email,
         note,
-        currentDate
+        profileImg,
+        currentDate,
+        status
     })
 
     newabsent.save().then(() => {
@@ -66,7 +81,7 @@ attandenceRouter.post('/addabsent', passport.authenticate('jwt', { session: fals
 });
 
 attandenceRouter.post('/addpresent', passport.authenticate('jwt', { session: false }), (req, res) => {
-    const { name, contactNo, code, nic, email, note, currentDate } = req.body;
+    const { name, contactNo, code, nic, email, note, profileImg, currentDate } = req.body;
 
     const newpresent = new Present({
         name,
@@ -75,6 +90,7 @@ attandenceRouter.post('/addpresent', passport.authenticate('jwt', { session: fal
         nic,
         email,
         note,
+        profileImg,
         currentDate
     })
 
@@ -117,7 +133,7 @@ attandenceRouter.get('/allabsent/:date', passport.authenticate('jwt', { session:
 //All Absent Attendance By NIC
 attandenceRouter.get('/allNicabsent/:nic', passport.authenticate('jwt', { session: false }), (req, res) => {
 
-    Absent.find({ Nic: req.params.nic })
+    Absent.find({ nic: req.params.nic })
         .then((attendence) => {
             res.json(attendence);
         })
@@ -130,7 +146,7 @@ attandenceRouter.get('/allNicabsent/:nic', passport.authenticate('jwt', { sessio
 //All Present Attendance By NIC
 attandenceRouter.get('/allNicpresent/:nic', passport.authenticate('jwt', { session: false }), (req, res) => {
 
-    Present.find({ Nic: req.params.nic })
+    Present.find({ nic: req.params.nic })
         .then((attendence) => {
             res.json(attendence);
         })

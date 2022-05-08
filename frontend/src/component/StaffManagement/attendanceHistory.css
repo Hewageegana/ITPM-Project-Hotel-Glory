@@ -1,0 +1,50 @@
+.presentCover{
+    border-width: 2px;
+    border-radius: 50px;
+    border-color: #0AB155;
+    border-style: solid;
+    background-color: #E3FAF0;
+
+}
+
+.absentCover{
+  border-width: 2px;
+  border-radius: 50px;
+  border-color: #b10a0a;
+  border-style: solid;
+  background-color: #fae3e3;
+
+}
+
+.presentText{
+    font-weight: bold;
+    font-size: 15px;
+    color: #0AB155;
+    padding-left: 10px;
+    padding-right: 5px;
+    padding-top: 5px;
+}
+
+.absentText{
+  font-weight: bold;
+  font-size: 15px;
+  color: #b10a0a;
+  padding-left: 10px;
+  padding-right: 5px;
+  padding-top: 5px;
+}
+
+.history-btncol{
+    float: left;
+    width: 11%;
+    align-self: center;
+  }
+
+  .history-imgcol{
+    float: left;
+    width:40%;
+  }
+  .history-detailcol{
+    float: left;
+    width:40%;
+  }
